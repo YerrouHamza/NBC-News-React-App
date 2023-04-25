@@ -1,4 +1,4 @@
-import Navbar from './contents/Navbar.jsx'
+import Navbar from './contents/navbar/Navbar.jsx'
 
 function App() {
   return (
