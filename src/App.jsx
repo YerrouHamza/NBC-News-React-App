@@ -1,10 +1,9 @@
-import Navbar from './contents/navbar/Navbar.jsx'
+import Home from './pages/home/home'
 
 function App() {
   return (
     <>
-      <Navbar />
-      <h1>Hello world</h1>
+      <Home />
     </>
   )
 }
