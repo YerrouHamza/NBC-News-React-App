@@ -1,11 +1,19 @@
 .navbar {
-    background-color: lightgray;
-    height: 80px;
+    height: 90px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-
+    box-shadow: 0 0 7px 0px rgba(133, 133, 133, 0.4);
+    &-content {
+        width: 1400px;
+        margin: 0 auto;
+        
+        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
 
     .logo {
         flex: 2;
@@ -16,7 +24,7 @@
         transition: filter 300ms;
         
         &:hover {
-        filter: drop-shadow(0 0 1em lightblue);
+        filter: drop-shadow(0 0 1em #cecece);
         }
     }
 
@@ -48,14 +56,13 @@
                     position: absolute;
                     left: 50%; bottom: -7px;
                     transform: translateX(-50%);
-                    height: 4px;
+                    height: 3px;
                     width: 0;
-                    background-color: lightblue;
+                    background-color: var(--primary-color);
                     transition: all .3s ease-in-out;
                 }
                 
                 &:hover {
-                    color: lightblue;
                     &::after {
                     width: 100%;
                     }
@@ -73,7 +80,7 @@
             margin-left: 10px;
     
             &:hover {
-                stroke: lightblue;
+                stroke: var(--primary-color);
             }
         }
     }
