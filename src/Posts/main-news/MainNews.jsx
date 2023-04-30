@@ -1,7 +1,7 @@
-import './mainPost.scss'
+import './mainNews.scss'
 import postImage from '../../assets/mbc-main-post-test.png'
 
-function MainPost() {
+function MainNews() {
   return <>
     <div className="post post-style-main">
       <img className='post-img' src={postImage} alt="the Trending image" />
@@ -26,4 +26,4 @@ function MainPost() {
   </>
 }
 
-export default MainPost
+export default MainNews
