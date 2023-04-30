@@ -1,0 +1,5 @@
+.home {
+    max-width: calc(var(--page-width) - var(--padding-x));
+    margin: 30px auto;
+    padding: 0 var(--padding-x);
+}

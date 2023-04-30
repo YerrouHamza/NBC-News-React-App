@@ -19,9 +19,14 @@
 
 // set the main variabels color
 :root {
+  // page max width
+  --page-width: 1300px;
+
+  // padding horizontal
+  --padding-x: 20px;
+
+  // colors
   --primary-color: #0E1E32;
   --primary-color-inverse: #ffffff;
 
-  --secondary-color: red;
-  --scondary-color-inverse: #000000;
 }

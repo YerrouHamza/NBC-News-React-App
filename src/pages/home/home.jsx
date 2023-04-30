@@ -9,10 +9,9 @@ import MainPost from '../../Posts/post-main/mainPost'
 function home() {
   return <>
     <Navbar />
-    <div className="homeContent">
+    <header className="home">
       <MainPost />
-
-    </div>
+    </header>
   </>
 }
 
