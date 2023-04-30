@@ -5,14 +5,14 @@
     align-items: center;
     box-shadow: 0 0 7px 0px rgba(133, 133, 133, 0.4);
     &-content {
-        width: 1400px;
+        width: calc(var(--page-width) - var(--padding-x));
         margin: 0 auto;
         
         
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px 20px;
+        padding: 10px var(--padding-x);
     }
 
     .logo {

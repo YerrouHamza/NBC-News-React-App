@@ -25,8 +25,22 @@
   // padding horizontal
   --padding-x: 20px;
 
-  // colors
+
+  // braek points widths
+  --braek-point-lg: 1200px;
+  --braek-point-md: 900px;
+  --braek-point-sm: 759px;
+  --braek-point-xs: 559px;
+  
+}
+
+// color variabels
+:root {
+  // main colors
   --primary-color: #0E1E32;
   --primary-color-inverse: #ffffff;
 
+
+  // other colors
+  --danger-color: rgb(255, 63, 63);
 }

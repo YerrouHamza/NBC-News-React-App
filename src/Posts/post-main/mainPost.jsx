@@ -14,10 +14,10 @@ function MainPost() {
         Earlier this month, a viral video depicting hyper-realistic cakes as everyday items had folks on social media double-guessing every other post, and sometimes even their own realities, effectively launching the next meme : “Is this real or is this cake?”
         </p>
         <div className="info">
-          <p>
+          <p className='posted-time'>
             <span>2</span> hours ago
           </p>
-          <p>
+          <p className='posted-by'>
            By <span>Lucy Hiddleston</span>
           </p>
         </div>

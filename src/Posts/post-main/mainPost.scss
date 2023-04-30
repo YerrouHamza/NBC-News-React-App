@@ -1,5 +1,117 @@
-.post-dtyle-main {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.post {
+    &-style-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-img {
+        flex: 6;
+        padding-right: 30px;
+        width: 100%;
+        max-width: 700px;
+        max-height: 500px;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &-content {
+        flex: 6;
+        padding-left: 30px;
+        height: 400px;
+        padding: 0 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+
+        .tag {
+            color: var(--danger-color);
+            margin-bottom: 15px;
+        }
+
+        .title {
+            font-style: italic;
+            font-size: 30px;
+            line-height: 1.2;
+            margin-bottom: 23px;
+
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+                    line-clamp: 3; 
+            -webkit-box-orient: vertical;
+        }
+
+        .description {
+            margin-bottom: 20px;
+            font-size: 18px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+                    line-clamp: 5; 
+            -webkit-box-orient: vertical;
+        }
+
+        .info {
+            display: flex;
+            font-size: 15px;
+            color: 40%;
+            
+            .posted-time {
+                margin-right: 30px;
+            }
+            
+            .posted-by {
+                color: #484848;
+            }
+        }
+    }
+    @media only screen and (max-width: 1200px) {
+        &-img {
+            flex: 4;
+            padding-right: 10px;
+            width: 100%;
+            max-width: 550px;
+            max-height: 450px;
+        }
+
+        &-content {
+            padding-left: 10px;
+
+
+            .tag {
+                margin-bottom: 10px;
+            }
+
+            .title {
+                margin-bottom: 15px;
+            }
+
+            .description {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 1000px) {
+        flex-direction: column;
+        &-img {
+            padding-right: 0;
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 25px;
+        }
+    }
+
+    @media only screen and (max-width: 500px) {
+        .title {
+            font-size: 25px;
+        }
+
+        .description {
+            margin-bottom: 18px;
+        }
+    }
+
 }
