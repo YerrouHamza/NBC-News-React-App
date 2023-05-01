@@ -44,3 +44,13 @@
   // other colors
   --danger-color: rgb(255, 63, 63);
 }
+
+
+.loader-icon {
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
