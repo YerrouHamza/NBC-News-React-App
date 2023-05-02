@@ -1,4 +1,4 @@
-import {React, useState, useEffect} from 'react'
+import {useState, useEffect} from 'react'
 
 function NewsFilter() {
     return <div className='post-filter'>
