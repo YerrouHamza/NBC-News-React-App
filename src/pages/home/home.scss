@@ -1,9 +1,29 @@
 .home {
-    max-width: calc(var(--page-width) - var(--padding-x));
-    margin: 30px auto;
-    padding: 0 var(--padding-x);
-
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+
+    & > *:not(.navbar, .news-bar) {
+        max-width: calc(var(--page-width) - var(--padding-x));
+        margin: 10px auto;
+        padding: 0 var(--padding-x);
+    }
+
+
+    .news-post {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+
+        .post-filter {
+            flex: 8 4 840px;
+        }
+        .aside-bar {
+            flex: 4 8 300px;
+            height: 100px;
+        }
+    }
 }

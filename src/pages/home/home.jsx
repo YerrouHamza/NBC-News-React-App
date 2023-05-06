@@ -9,16 +9,17 @@ import NewsBar from '../../components/news-bar/newsBar';
 import NewsFilter from '../../Posts/news-filter/NewsFilter';
 
 function Home() {
-  return <>
+  return <main className='home'>
     <Navbar />
-    <header className="home">
+    <header className="haeder">
       <MainNews/>
     </header>
     <NewsBar />
     <section className='news-post'>
       <NewsFilter />
+      <div className="aside-bar"></div>
     </section>
-  </>
+  </main>
 }
 
 export default Home

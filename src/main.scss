@@ -45,6 +45,9 @@
   --danger-color: rgb(255, 63, 63);
 }
 
+body {
+  background-color: #E5E5E5;
+}
 
 .loader-icon {
   height: 80px;
@@ -53,4 +56,58 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+
+.posts {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 35px;
+
+  .card {
+    height: auto;
+    flex: 1 1 48%;
+    max-width: 48%;
+    background-color: #ffffff;
+
+    &-body {
+      padding: 15px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 200px;
+    }
+    
+
+    &-title {
+
+      margin-bottom: 10px;
+
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+              line-clamp: 3; 
+      -webkit-box-orient: vertical;
+    }
+
+    &-text {
+      font-size: 16px;
+      color: #3e3e3e;
+
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+              line-clamp: 4; 
+      -webkit-box-orient: vertical;
+    }
+
+    img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+  }
+
 }
