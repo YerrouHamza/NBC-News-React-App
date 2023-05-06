@@ -1,6 +1,7 @@
-import {useContext} from 'react'
+// import './'
+import {useContext} from 'react';
 
-import { NewsContext } from '../../newsContext'
+import { NewsContext } from '../../newsContext';
 
 function NewsFilter() {
 
@@ -18,15 +19,17 @@ function NewsFilter() {
 
             </button>
         </div>
-        {data.map( news => (
-            <div className="posts">
-                <div className="card">
+        <div className="posts">
+            {data.map( news => (
+                <div className="card" key={news.id}>
                     <img src={news.image} alt="" />
-                    <h4 className='card-title'>{news.title}</h4>
-                    <p className='card-text'>{news.text}</p>
+                    <div className="card-body">
+                        <h4 className='card-title'>{news.title}</h4>
+                        <p className='card-text'>{news.text}</p>
+                    </div>
                 </div>
-            </div>
-        ))}
+            ))}
+        </div>
     </div>
 }
 
