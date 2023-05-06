@@ -6,6 +6,7 @@ function NewsFilter() {
 
     const [data, setData] = useContext(NewsContext);
 
+
     return <div className='post-filter'>
         <div className="filter">
             <ul>
@@ -17,19 +18,15 @@ function NewsFilter() {
 
             </button>
         </div>
-        <div className="posts">
-            {
-                data.map(data => (
-                    data.title
-                ))
-            }
-            <div className="card">
-                <img src="" alt="" />
-                <h4 className='card-title'></h4>
-                <p className='card-text'></p>
-                <button className='card-btn'>Read More</button>
+        {data.map( news => (
+            <div className="posts">
+                <div className="card">
+                    <img src={news.image} alt="" />
+                    <h4 className='card-title'>{news.title}</h4>
+                    <p className='card-text'>{news.text}</p>
+                </div>
             </div>
-        </div>
+        ))}
     </div>
 }
 

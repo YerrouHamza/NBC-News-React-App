@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState, useEffect, createContext} from 'react'
 
 export const NewsContext =  createContext();
@@ -8,24 +9,23 @@ export const NewsProvider = props => {
     const [error, setError] = useState("");
     const [loaded, setLoaded] = useState(false);
 
+
+    const ApiKey = '9bea390d002b45ef8bc2fe3577e52a39';
+    const Search = 'tesla'
+
     useEffect(() => {
-        const loadAsyncStuff = async () => {
-            try {
-                const response = await fetch(`https://newsapi.org/v2/everything?q=tesla&from=2023-05-01&sortBy=publishedAt&apiKey=afe532d07ba148329362cacae6343b5e`);
-                const data = await response.json();
-                setData(data.articles);
-
-            } catch (error) {
-                setError(error);
-            } finally {
-                setTimeout(() => {
-                    setLoaded(true);
-                }, 2000);
-            }
-        };
-
-        loadAsyncStuff();
+        axios.get(`https://api.worldnewsapi.com/search-news?api-key=${ApiKey}&text=${Search}`)
+        .then(Response => {
+            console.log(Response.data.news)
+            setData(Response.data.news)
+            setLoaded(Response.data ? true : false)
+        }).catch(error => {
+            console.log(error)
+        })
     }, []);
+
+    console.log('news Data: ' + data)
+    console.log('news Data: ' + loaded)
 
     return (
         <NewsContext.Provider value={[data, setData, error, setError, loaded, setLoaded]}>
