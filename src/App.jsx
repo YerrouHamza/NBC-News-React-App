@@ -1,5 +1,4 @@
-import Home from './pages/home/home'
-// import { Dna } from  'react-loader-spinner'
+import Home from './pages/home/Home'
 
 import { NewsProvider } from './newsContext'
 
