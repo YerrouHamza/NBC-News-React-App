@@ -58,18 +58,59 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.filter {
+  background-color: #ffffff;
+  margin-bottom: 25px;
+  padding: 10px;
+
+  display: flex; justify-content: space-between; align-items: center;
+
+  &-items {
+      display: flex;justify-content: flex-start; align-items: center;
+      padding: 10px;
+
+      .item {
+        margin-right: 20px;
+      }
+
+      a {
+        color: inherit;
+        position: relative;
+        top: 0; left: 0; top: 0; bottom: 0;
+        padding: 5px 0;
+        
+        
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0; bottom: 0;
+          height: 3px;
+          width: 0;
+          max-width: 30px;
+          background-color: var(--danger-color);
+
+          transition: all .3s ease-in-out;
+        }
+
+        &:is(.active, :hover)::after {
+          width: 100%;
+          max-width: 30px;
+        }
+      }
+  }
+}
 
 .posts {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 35px;
+  gap: 30px;
 
   .card {
     height: auto;
-    flex: 1 1 48%;
-    max-width: 48%;
+    flex: 1 1 405px;
+    max-width: 405px;
     background-color: #ffffff;
 
     &-body {
