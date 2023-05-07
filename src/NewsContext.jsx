@@ -11,21 +11,21 @@ export const NewsProvider = props => {
 
 
     const ApiKey = '9bea390d002b45ef8bc2fe3577e52a39';
-    const Search = 'tesla'
+    const Search = 'appel'
 
-    useEffect(() => {
-        axios.get(`https://api.worldnewsapi.com/search-news?api-key=${ApiKey}&text=${Search}`)
-        .then(Response => {
-            console.log(Response.data.news)
-            setData(Response.data.news)
-            setLoaded(Response.data ? true : false)
-        }).catch(error => {
-            console.log(error)
-        })
-    }, []);
+    // useEffect(() => {
+    //     axios.get(`https://api.worldnewsapi.com/search-news?api-key=${ApiKey}&text=${Search}`)
+    //     .then(Response => {
+    //         console.log(Response.data.news)
+    //         setData(Response.data.news)
+    //         setLoaded(Response.data ? true : false)
+    //     }).catch(error => {
+    //         console.log(error)
+    //     })
+    // }, []);
 
-    console.log('news Data: ' + data)
-    console.log('news Data: ' + loaded)
+    // console.log('news Data: ' + data)
+    // console.log('news Data: ' + loaded)
 
     return (
         <NewsContext.Provider value={[data, setData, error, setError, loaded, setLoaded]}>
