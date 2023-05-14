@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
 
+import './newsFilter.scss'; // import style
 import NewsLocation from '../../components/news-location/newsLocation';
 
 
