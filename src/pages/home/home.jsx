@@ -15,10 +15,7 @@ function Home() {
       <MainNews/>
     </header>
     <NewsBar />
-    <section className='news-post'>
-      <NewsFilter />
-      <div className="aside-bar"></div>
-    </section>
+    <NewsFilter />
   </main>
 }
 
