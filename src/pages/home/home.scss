@@ -10,22 +10,4 @@
         margin: 10px auto;
         padding: 0 var(--padding-x);
     }
-
-
-    .news-post {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 40px;
-
-        .post-filter {
-            flex: 8 4 840px;
-            width: 840px;
-        }
-        .aside-bar {
-            flex: 4 8 300px;
-            height: 100px;
-            width: 300px;
-        }
-    }
 }
