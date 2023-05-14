@@ -1,0 +1,30 @@
+.animation {
+    
+    &-underline {
+        position: relative;
+        top: 0; left: 0; top: 0; bottom: 0;
+        padding: 5px 0;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+        
+        
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0; bottom: 0;
+            height: 3px;
+            width: 0;
+            max-width: 30px;
+            background-color: var(--danger-color);
+            transition: all .4s ease-in-out;
+        }
+    
+        &:is(.active, :hover) {
+            color: var(--danger-color);
+            &::after {
+                width: 100%;
+                max-width: 30px;
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+.btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+
+    &-border {
+        color: var(--danger-color);
+        background-color: transparent;
+        border: 1px solid var(--danger-color);
+        transition: all .3s ease-in-out;
+        
+        &:is(:hover, :active) {
+            background-color: var(--danger-color);
+            color: #ffffff;
+        }
+    }
+
+    &-icon, &-clear {
+        background-color: transparent;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+        color: inherit;
+    }
+
+
+    // &-hover {
+    //     position: relative;
+    //     top: 0; left: 0; bottom: 0; right: 0;
+
+    //     &::after, &::before {
+    //         content: '';
+    //         position: absolute;
+    //         top: -7px;
+    //         left: -5px;
+    //         background-color: var(--danger-color);
+    //         transition: all .3s ease-out;
+
+    //         :is(::after) {
+    //             width: 2px;
+    //             height: 0;
+    //         }
+    //         :is(::before) {
+    //             width: 0;
+    //             height: 2px;
+    //         }
+    //     }
+    // }
+}
