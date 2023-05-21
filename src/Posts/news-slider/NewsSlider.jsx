@@ -18,23 +18,26 @@ function NewsSlider() {
         } else {
             return null
         }
+        setCurrentSlider(-520*targetIndex)
     }, []);
     
-    // useEffect(() => {
-    //     setCurrentSlider(-520*targetIndex)
-    // }, [targetIndex])
+    useEffect(() => {
+        const intreval = setInterval(() => {
+            targetIndex === 3 ? setTargetIndex(0) : setTargetIndex(targetIndex + 1)
+            console.log(targetIndex)
+        }, 5000);
+        
+        sliderSwitch()
+        return () => clearInterval(intreval);
+    }, [targetIndex]);
     
+    const sliderSwitch = () => {
+        setCurrentSlider(-520*targetIndex)
+    }
     
-    
-    // const autoSlide = setInterval(() => {
-    //     targetIndex === 2 ? setTargetIndex(0) : setTargetIndex(targetIndex + 1)
-    // }, 5000);
-    
-    
-    const sliderSwitch = (event, index) => {
-        setTargetIndex(index)
-        setCurrentSlider(-520*index)
-        clearInterval(autoSlide);
+    const HandelSwitch = (event, index) => {
+        setTargetIndex(index);
+        sliderSwitch();
     }
 
 
@@ -58,8 +61,8 @@ function NewsSlider() {
 
         </div>
         <div className="slider-controls">
-            {data.slice(0, 4 - 1).map((news, index) => (
-                <span className={targetIndex === index ? 'slider-switch active' : 'slider-switch'} onClick={event => sliderSwitch(event, index)} key={index}></span>
+            {data.slice(0, 4).map((news, index) => (
+                <span className={targetIndex === index ? 'slider-switch active' : 'slider-switch'} onClick={event => HandelSwitch(event, index)} key={index}></span>
             ))}
         </div>
     </div>
