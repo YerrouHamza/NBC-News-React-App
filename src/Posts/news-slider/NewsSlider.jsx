@@ -58,7 +58,7 @@ function NewsSlider() {
         <div className="slider">
             <div className="slider-container" style={sliderControl}>
                 {data.slice(0, 6).map(news => (
-                    <a className="card" key={news.id} href="">
+                    <a className="card animation-outline" key={news.id} href="">
                         <div className='card-body'>
                             <div className="card-img">
                                 <img src={news.image}/>

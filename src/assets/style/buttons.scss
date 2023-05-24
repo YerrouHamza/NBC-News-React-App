@@ -16,7 +16,7 @@
         &:is(:hover) {
             outline-offset: 2px;
         }
-        &:is(:active :focus) {
+        &:is(:active, :focus) {
             outline-offset: 5px;
         }
     }

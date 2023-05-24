@@ -27,4 +27,21 @@
             }
         }
     }
+
+    &-outline {
+        outline: 2px solid transparent;
+        outline-offset: -1;
+        
+        transition: all .3s ease-in-out;
+        
+        &:is(:hover) {
+            outline-color: var(--danger-color);
+            outline-offset: 3px;
+        }
+        &:is(:active, :focus) {
+            outline-offset: 5px;
+        }
+    }
+
+
 }
