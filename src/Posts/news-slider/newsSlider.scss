@@ -105,6 +105,9 @@
         
         transition: all 0.3s ease-in-out;
         
+        &:hover {
+            background-color: var(--danger-color);
+        }
         
         &.active {
             transform: scale(1.3);
