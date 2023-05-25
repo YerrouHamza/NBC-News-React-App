@@ -95,8 +95,8 @@ function NewsFilter() {
                         </div>
                     </div>
                 )) : <div className="card no-data">NO data</div> }
-                {maxNews === 8 ? <a href="" className='btn btn-border'>View All News</a> : <button className='btn btn-border' onClick={handelNewsPostsCount}>Veiw More</button> }
             </div>
+            {maxNews === 8 ? <a href="" className='btn btn-border'>View All News</a> : <button className='btn btn-border' onClick={handelNewsPostsCount}>Veiw More</button> }
         </div>
         <div className="aside-bar">
             <NewsLocation />

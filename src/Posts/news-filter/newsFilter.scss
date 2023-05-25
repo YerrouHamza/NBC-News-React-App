@@ -64,6 +64,7 @@
             align-items: flex-start;
             flex-wrap: wrap;
             gap: 30px;
+            margin-bottom: 30px;
             
             .card {
               height: auto;
@@ -136,6 +137,11 @@
               margin: auto;
               min-width: 180px;
             }
+        }
+
+        .btn {
+          margin: auto;
+          display: block;
         }
     }
     .aside-bar {

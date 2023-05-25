@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: flex-start;
     gap: 20px;
+    overflow-x: hidden;
 
     & > *:not(.navbar, .news-bar) {
         max-width: calc(var(--page-width) - var(--padding-x));
