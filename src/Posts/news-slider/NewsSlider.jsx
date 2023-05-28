@@ -57,7 +57,7 @@ function NewsSlider() {
     return (
         <div className="slider">
             <h2 className='section-title'>Editor’s Picks</h2>
-            <div className="slider-container" style={sliderControl}>
+            {/* <div className="slider-container" style={sliderControl}>
                 {data.slice(0, 6).map(news => (
                     <a className="card animation-outline" key={news.id} href="">
                         <div className='card-body'>
@@ -84,7 +84,7 @@ function NewsSlider() {
                 {data.slice(0, 6).map((news, index) => (
                     <span className={activeIndex === index ? 'slider-switch active' : 'slider-switch'} onClick={event => HandelSwitch(event, index)} key={index}></span>
                 ))}
-            </div>
+            </div> */}
         </div>
     )
 }
