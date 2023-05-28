@@ -48,26 +48,6 @@
 
             &-item {
                 color: var(--text-color);
-                position: relative;
-                top: 0; left: 0; bottom: 0; right: 0;
-                transition: all .3s ease-in-out;
-
-                &::after {
-                    content: '';
-                    position: absolute;
-                    left: 50%; bottom: -7px;
-                    transform: translateX(-50%);
-                    height: 3px;
-                    width: 0;
-                    background-color: var(--primary-color);
-                    transition: all .3s ease-in-out;
-                }
-                
-                &:hover {
-                    &::after {
-                    width: 100%;
-                    }
-                }
             }
         }
     }
@@ -81,8 +61,14 @@
             margin-left: 10px;
     
             &:hover {
-                stroke: var(--primary-color);
+                stroke: var(--danger-color);
             }
+        }
+    }
+
+    @media only screen and (max-width: 1000px) {
+        .menu {
+            display: none;
         }
     }
 

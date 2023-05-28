@@ -11,25 +11,25 @@ function Navbar() {
         <nav className='menu'>
           <ul className='navlist'>
               <li>
-                <a className='navlist-item' href="#">Corona Updates</a>
+                <a className='navlist-item animation-underline' href="#">Corona Updates</a>
               </li>
               <li>
-                <a className='navlist-item' href="#">Politics</a>
+                <a className='navlist-item animation-underline' href="#">Politics</a>
               </li>
               <li>
-                <a className='navlist-item' href="#">Business</a>
+                <a className='navlist-item animation-underline' href="#">Business</a>
               </li>
               <li>
-                <a className='navlist-item' href="#">Sports</a>
+                <a className='navlist-item animation-underline' href="#">Sports</a>
               </li>
               <li>
-                <a className='navlist-item' href="#">World</a>
+                <a className='navlist-item animation-underline' href="#">World</a>
               </li>
               <li>
-                <a className='navlist-item' href="#">Travel</a>
+                <a className='navlist-item animation-underline' href="#">Travel</a>
               </li>
               <li>
-                <a className='navlist-item' href="#">Podcasts</a>
+                <a className='navlist-item animation-underline' href="#">Podcasts</a>
               </li>
           </ul>
         </nav>
