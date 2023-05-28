@@ -1,46 +1,16 @@
-import {useEffect, useState} from 'react';
-import axios from 'axios';
+import {useContext, useEffect, useState} from 'react';
 
 import './newsFilter.scss'; // import style
 import NewsLocation from '../../components/news-location/newsLocation';
 
+import { NewsContext } from '../../NewsContext';
 
 function NewsFilter() {
-    const [data, setData] = useState([]);
-    const [error, setError] = useState("");
-    const [maxNews, setMaxNews] = useState(4)
+    const [data, setData] = useContext(NewsContext); // get data from context
 
+    const [maxNews, setMaxNews] = useState(4)
     const [isActive, setIsActive] = useState(false)
 
-
-    const ApiKey = '9bea390d002b45ef8bc2fe3577e52a39';
-    const Search = 'appel'
-
-    
-    // get date and change it to the last 3 days ago date
-    const date = new Date()
-    date.setDate(date.getDate() - 3);
-    const oldDate = date.toLocaleDateString().toLocaleString()
-    
-    // the localstorage
-    const getNewsDataFromLS = JSON.parse(localStorage.getItem('newsData'))
-    
-    useEffect(() => {
-        if(localStorage.getItem('newsData')) {
-            setData(getNewsDataFromLS); // set the data on the main news state
-            // console.log(1)
-        } else {
-            // get news data from news from API 
-            axios.get(`https://api.worldnewsapi.com/search-news?api-key=${ApiKey}&earliest-publish-date=${oldDate}&number=10`)
-            .then(Response => {
-                localStorage.setItem("newsData", JSON.stringify(Response.data.news));
-                setData(Response.data.news); // set data from localstorage
-            }).catch(error => {
-                console.log(error)
-            })
-            // console.log(2)
-        }
-    }, []);
 
     // handel the chnage post style function
     const handelNewsPostSetting = () => {
