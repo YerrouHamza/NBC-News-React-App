@@ -3,7 +3,7 @@ import './newsBar.scss'
 function NewsBar() {
   return <>
     <div className="news-bar">
-        <a href='#' className='btn'>
+        <a href='#' className='btn btn-primary'>
             Breaking News
         </a>
         Kanye West says he's running for president in 2020.

@@ -8,16 +8,18 @@
         background-color: var(--danger-color);
         color: #ffffff;
         padding: 9px 20px;
-        outline: 2px solid var(--danger-color);
+        outline: 2px solid;
+        outline-color: transparent;
         outline-offset: -1;
         
         transition: all .3s ease-in-out;
         
         &:is(:hover) {
             outline-offset: 2px;
+            outline-color: var(--danger-color);
         }
         &:is(:active, :focus) {
-            outline-offset: 5px;
+            outline-offset: 3px;
         }
     }
 
