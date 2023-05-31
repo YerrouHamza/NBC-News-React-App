@@ -6,11 +6,15 @@ import NewsLocation from '../../components/news-location/newsLocation';
 import { NewsContext } from '../../NewsContext';
 
 function NewsFilter() {
-    const [data, setData] = useContext(NewsContext); // get data from context
+    const [mainData, setMainData] = useContext(NewsContext); // get data from context
 
+    const [data, setData] = useState(mainData)
     const [maxNews, setMaxNews] = useState(4)
     const [isActive, setIsActive] = useState(false)
 
+    useEffect(() => {
+        setData(mainData)
+    }, [mainData])
 
     // handel the chnage post style function
     const handelNewsPostSetting = () => {
@@ -50,16 +54,16 @@ function NewsFilter() {
                 </button>
             </div>
             <div className={isActive ? 'posts table' : 'posts grid'}>
-                { data ? data.slice(0, maxNews).map( news => (
-                    <div className="card" key={news.id}>
-                        <img src={news.image} alt="" />
+                { data ? data.slice(0, maxNews).map( (news, index) => (
+                    <div className="card" key={index}>
+                        <img src={news.urlToImage} alt="" />
                         <div className="card-body">
                             <div className="card-head">
                                 <h4 className='card-title'>{news.title}</h4>
-                                <p className='card-text'>{news.text}</p>
+                                <p className='card-text'>{news.description}</p>
                             </div>
                             <div className="card-footer">
-                                <p className='card-author'>{news.author ? news.author : 'Anonymous'}</p>
+                                <p className='card-author'>{news.creator ? news.creator : 'Anonymous'}</p>
                                 <a href={news.url} target='_blank' className='btn-clear animation-underline'>View More</a>
                             </div>
                         </div>

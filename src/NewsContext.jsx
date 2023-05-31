@@ -5,27 +5,29 @@ export const NewsContext =  createContext();
 
 export const NewsProvider = props => {
 
-    const [data, setData] = useState([]);
+    const [mainData, setMainData] = useState([]);
+    const [country, setCountry] = useState('us');
+    const [category, setCategory] = useState('');
     const [error, setError] = useState("");
     const [loaded, setLoaded] = useState(false);
 
 
-    const ApiKey = '9bea390d002b45ef8bc2fe3577e52a39';
-    const Search = 'appel'
+    const ApiKey = 'afe532d07ba148329362cacae6343b5e';
 
     useEffect(() => {
-        axios.get(`https://api.worldnewsapi.com/search-news?api-key=${ApiKey}&text=${Search}`)
+        axios.get(`https://newsapi.org/v2/top-headlines?country=${country}${category ? `&category=${category}` : ''}&apiKey=${ApiKey}`)
         .then(Response => {
-            console.log(Response.data.news)
-            setData(Response.data.news)
+            const articles = Response.data.articles
+            console.log(articles)
+            setMainData(articles)
             setLoaded(Response.data ? true : false)
         }).catch(error => {
             console.log(error)
         })
     }, []);
 
-    console.log('news Data: ' + data)
-    console.log('news Data: ' + loaded)
+    console.log('news Data: ' + mainData)
+    console.log('news Data: ' + `https://newsapi.org/v2/top-headlines?country=${country}${category ? `&category=${category}` : ''}&apiKey=${ApiKey}`)
 
     // // get date and change it to the last 3 days ago date
     // const date = new Date()
@@ -53,7 +55,7 @@ export const NewsProvider = props => {
     // }, []);
 
     return (
-        <NewsContext.Provider value={[data, setData, error, setError, loaded, setLoaded]}>
+        <NewsContext.Provider value={[mainData, setMainData, setCountry, setCategory, error, setError, loaded, setLoaded]}>
             {props.children}
         </NewsContext.Provider>
     ) 

@@ -1,13 +1,24 @@
+import { useContext, useEffect } from 'react'
 import './newsBar.scss'
 
+import { NewsContext } from '../../NewsContext';
+
+
 function NewsBar() {
+
+  const [data, setData] = useContext(NewsContext) 
+
+  //  console.log(data[0][0].title)
+  
   return <>
-    <div className="news-bar">
-        <a href='#' className='btn btn-primary'>
-            Breaking News
-        </a>
-        Kanye West says he's running for president in 2020.
-    </div>
+    {data.slice(1, 2).map((news, index) => (
+      <div className="news-bar" key={index}>
+            <a href={news.url} target='_blank' className='btn btn-primary'>
+                Breaking News
+            </a>
+            {news.title}
+      </div>
+    ))} 
   </>
 }
 
