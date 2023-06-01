@@ -10,6 +10,7 @@ import NewsFilter from '../../Posts/news-filter/NewsFilter';
 import NewsSlider from '../../Posts/news-slider/NewsSlider';
 import Footer from '../../content/footer/footer';
 
+
 function Home() {
   return <main className='home'>
     <Navbar />
