@@ -42,28 +42,4 @@
         border: none;
         color: inherit;
     }
-
-
-    // &-hover {
-    //     position: relative;
-    //     top: 0; left: 0; bottom: 0; right: 0;
-
-    //     &::after, &::before {
-    //         content: '';
-    //         position: absolute;
-    //         top: -7px;
-    //         left: -5px;
-    //         background-color: var(--danger-color);
-    //         transition: all .3s ease-out;
-
-    //         :is(::after) {
-    //             width: 2px;
-    //             height: 0;
-    //         }
-    //         :is(::before) {
-    //             width: 0;
-    //             height: 2px;
-    //         }
-    //     }
-    // }
 }
