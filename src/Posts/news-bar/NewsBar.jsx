@@ -6,12 +6,12 @@ import { NewsContext } from '../../NewsContext';
 
 function NewsBar() {
 
-  const [data, setData] = useContext(NewsContext) 
+  const {mainData} = useContext(NewsContext) 
 
   //  console.log(data[0][0].title)
   
   return <>
-    {data.slice(1, 2).map((news, index) => (
+    {mainData.slice(1, 2).map((news, index) => (
       <div className="news-bar" key={index}>
             <a href={news.url} target='_blank' className='btn btn-primary'>
                 Breaking News

@@ -7,7 +7,7 @@ import { NewsContext } from '../../NewsContext';
 function NewsSlider() {
 
     // const [data, setData] = useState();
-    const [mainData, setMainData] = useContext(NewsContext);
+    const {mainData, setMainData} = useContext(NewsContext);
 
     const [data, setData] = useState(mainData);
     const [currentSlider, setCurrentSlider] = useState(0);

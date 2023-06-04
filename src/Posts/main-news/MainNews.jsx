@@ -5,10 +5,10 @@ import {NewsContext} from '../../NewsContext';
 
 function MainNews() {
 
-  const [data, setData] = useContext(NewsContext) // get data from context
+  const {mainData} = useContext(NewsContext) // get data from context
   
   return <>
-  {data.slice(0, 1).map((news, index) => (
+  {mainData.slice(0, 1).map((news, index) => (
     <div className="post post-style-main" key={index}>
       <img className='post-img' src={news.urlToImage} alt="the Trending image" />
       <div className="post-content">

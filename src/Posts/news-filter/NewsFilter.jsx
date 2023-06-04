@@ -6,7 +6,7 @@ import NewsLocation from '../../components/news-location/newsLocation';
 import { NewsContext } from '../../NewsContext';
 
 function NewsFilter() {
-    const [mainData, setMainData] = useContext(NewsContext); // get data from context
+    const {mainData, setMainData} = useContext(NewsContext); // get data from context
 
     const [data, setData] = useState(mainData)
     const [maxNews, setMaxNews] = useState(4)
