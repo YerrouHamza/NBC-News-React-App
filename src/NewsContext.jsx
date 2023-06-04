@@ -6,10 +6,13 @@ export const NewsContext =  createContext();
 export const NewsProvider = props => {
 
     const [mainData, setMainData] = useState([]);
-    const [country, setCountry] = useState('us');
-    const [category, setCategory] = useState('');
     const [error, setError] = useState("");
     const [loaded, setLoaded] = useState(false);
+
+    const [country, setCountry] = useState('us');
+    const [category, setCategory] = useState('');
+
+    const [globalSettings, setGlobalSettings] = useState(false)
 
 
     const ApiKey = 'afe532d07ba148329362cacae6343b5e';
@@ -24,10 +27,10 @@ export const NewsProvider = props => {
         }).catch(error => {
             console.log(error)
         })
-    }, []);
+    }, [country]);
 
-    console.log('news Data: ' + mainData)
-    console.log('news Data: ' + `https://newsapi.org/v2/top-headlines?country=${country}${category ? `&category=${category}` : ''}&apiKey=${ApiKey}`)
+    // console.log('news Data: ' + mainData)
+    // console.log('news Data: ' + `https://newsapi.org/v2/top-headlines?country=${country}${category ? `&category=${category}` : ''}&apiKey=${ApiKey}`)
 
     // // get date and change it to the last 3 days ago date
     // const date = new Date()
@@ -55,7 +58,7 @@ export const NewsProvider = props => {
     // }, []);
 
     return (
-        <NewsContext.Provider value={[mainData, setMainData, setCountry, setCategory, error, setError, loaded, setLoaded]}>
+        <NewsContext.Provider value={{mainData, setMainData, setCountry, setCategory, error, loaded, globalSettings, setGlobalSettings}}>
             {props.children}
         </NewsContext.Provider>
     ) 

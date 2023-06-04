@@ -1,13 +1,17 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react';
+
 import './navbar.scss'
 import logo from '../../assets/nbc-logo.svg'
 
-import MobileNavbar from '../control-bar/controlBar'
-
-
+import { NewsContext } from '../../NewsContext';
 
 function Navbar() {
-  const [activeMobileNav, setActiveMobileNav] = useState(false);
+  
+  const {globalSettings, setGlobalSettings} = useContext(NewsContext);
+
+  const handelOpenGlobalSettings = () => {
+    setGlobalSettings(true)
+  }
   
   return (
     <nav className='navbar'>
@@ -56,7 +60,7 @@ function Navbar() {
               <path d="M21 21l-6 -6"></path>
             </svg>
           </a>
-          <a href="#" className='more-tools'>
+          <a href="#" className='more-tools' onClick={handelOpenGlobalSettings}>
             <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-menu-2" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
               <path d="M4 6l16 0"></path>
