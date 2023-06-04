@@ -6,7 +6,7 @@
     gap: 50px;
     overflow-x: hidden;
 
-    & > *:not(.navbar, .news-bar, footer) {
+    & > *:not(.navbar, .control-bar, .news-bar, footer) {
         max-width: calc(var(--page-width) - var(--padding-x));
         margin: 10px auto;
         padding: 0 var(--padding-x);

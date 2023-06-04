@@ -1,0 +1,67 @@
+.form {
+
+    &-group, &-control {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &-group {
+        background-color: #ffffff;
+        padding: 20px 15px;
+        
+        label {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #141414;
+        }
+        
+        .input-control {
+            padding-left: 10px;
+            height: 40px;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid #c1bcbc;
+    
+            &:is(:focus, :active) {
+                border-color: var(--danger-color);
+                box-shadow: none !important;
+            }
+        }
+        
+        .btn {
+            width: fit-content;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    }
+
+    &-control {
+        margin-bottom: 1.5rem;
+        label {
+            font-size: 1.2rem;
+            text-transform: capitalize;
+            margin-bottom: 10px;
+        }
+        select {
+            height: 40px;
+            width: 100%;
+        }
+        .help-block {
+            font-size: .8rem;
+            color: #323232;
+            text-transform: capitalize;
+        }
+    }
+}
+
+fieldset {
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-bottom: 5px;
+
+    legend {
+        padding: 0 5px;
+    }
+}

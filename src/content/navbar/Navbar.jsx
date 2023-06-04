@@ -1,9 +1,16 @@
+import { useState } from 'react'
 import './navbar.scss'
 import logo from '../../assets/nbc-logo.svg'
 
+import MobileNavbar from '../control-bar/controlBar'
+
+
+
 function Navbar() {
+  const [activeMobileNav, setActiveMobileNav] = useState(false);
+  
   return (
-    <div className='navbar'>
+    <nav className='navbar'>
       <div className="navbar-content">
         <a className="logo" href='#'>
           <img src={logo} alt="" />
@@ -59,7 +66,7 @@ function Navbar() {
           </a>
         </div>
       </div>
-    </div>
+    </nav>
   )
 }
 

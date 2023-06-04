@@ -4,6 +4,7 @@ import './home.scss'; // import the style
 
 // import the components
 import Navbar from '../../content/navbar/Navbar';
+import ControlBar from '../../content/control-bar/controlBar';
 import MainNews from '../../Posts/main-news/MainNews';
 import NewsBar from '../../Posts/news-bar/NewsBar';
 import NewsFilter from '../../Posts/news-filter/NewsFilter';
@@ -14,6 +15,7 @@ import Footer from '../../content/footer/footer';
 function Home() {
   return <main className='home'>
     <Navbar />
+    <ControlBar />
     <header className="haeder">
       <MainNews/>
     </header>
