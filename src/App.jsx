@@ -1,6 +1,6 @@
 import Home from './pages/home/Home'
 
-import { NewsProvider } from './newsContext'
+import { NewsProvider } from './NewsContext'
 
 function App() {
   return (
