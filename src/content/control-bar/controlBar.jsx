@@ -7,8 +7,9 @@ import { NewsContext } from '../../NewsContext';
 
 function ControlBar() {
 
-  const {setCountry, globalSettings, setGlobalSettings} = useContext(NewsContext)
-  const [globalLocaction, setGlobalLocaction] = useState('US')
+  const {setCountry, globalSettings, setNewsDate, setGlobalSettings} = useContext(NewsContext);
+  const [globalLocaction, setGlobalLocaction] = useState('US');
+  const [globalNewsDate, setGlobalNewsDate] = useState(0);
 
   const handelCloseGlobalSettings = () => {
     setGlobalSettings(false)
@@ -20,30 +21,32 @@ function ControlBar() {
     setGlobalLocaction(locationShortValue)
   }
 
-   // handel the news Loanguage select
-  //  const handelNewsLoanguageSelect = (e) => {
-  //   const loanguageShortValue = e.target.getAttribute("value");
-  //   setGlobalLanguage(loanguageShortValue)
-  // }
+  // handel the news location select
+  const handelNewsDateSelect = (e) => {
+    const newsDateValue = e.target.getAttribute("value");
+    setGlobalNewsDate(newsDateValue);
+  }
 
   // handel the save to set the new global settings
   const handelSetNewGlobalSettings = () => {
     setCountry(globalLocaction);
-    setLanguage(globalLanguage);
+    setNewsDate(globalNewsDate);
   }
+
 
 
   return (
     <div className={globalSettings ? 'control-bar open' : 'control-bar'}>
       <div className="controls">
-        <div className="controls-header">
-          <h2 className='controls-header-title'>Global News Settings</h2>
-          <button className="btn btn-icon btn-close" onClick={handelCloseGlobalSettings}>
-            <IconSquareRoundedArrowRight size={28} />
-          </button>
-        </div>
-
-        <div className="controls-body">
+        <div className="controls-content">
+          <div className="controls-header">
+            <h2 className='controls-title'>Global Settings</h2>
+            <button className="btn btn-icon btn-close" onClick={handelCloseGlobalSettings}>
+              <IconSquareRoundedArrowRight size={28} />
+            </button>
+          </div>
+          
+          <h4 className='controls-subtitle'>News Settings</h4>
           {/* control the global news category */}
           {/* <div className="form-control">
             <fieldset>
@@ -92,8 +95,20 @@ function ControlBar() {
           </div>
 
           {/* control The Global News language */}
+          <div className="form-control">
+            <fieldset>
+              <legend>News Date</legend>
+              <ul className='controls-list'>
+                <li onClick={handelNewsDateSelect} className={globalNewsDate == '0' ? 'controls-list-item active' : 'controls-list-item' } value="0">Today</li>
+                <li onClick={handelNewsDateSelect} className={globalNewsDate == '1' ? 'controls-list-item active' : 'controls-list-item' } value="1">Yesterday</li>
+                <li onClick={handelNewsDateSelect} className={globalNewsDate == '3' ? 'controls-list-item active' : 'controls-list-item' } value="3">3 Days Ago</li>
+                <li onClick={handelNewsDateSelect} className={globalNewsDate == '7' ? 'controls-list-item active' : 'controls-list-item' } value="7">This Week</li>
+                <li onClick={handelNewsDateSelect} className={globalNewsDate == '14' ? 'controls-list-item active' : 'controls-list-item' } value="14">Last Week</li>
+              </ul>
+            </fieldset>
+            <p className="help-block">Select The Global News Date</p>
+          </div>
         </div>
-
 
         <div className="controls-footer">
           <button onClick={handelSetNewGlobalSettings} className='btn btn-primary'>Save</button>

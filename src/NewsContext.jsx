@@ -11,14 +11,30 @@ export const NewsProvider = props => {
 
     const [country, setCountry] = useState('us');
     const [category, setCategory] = useState('');
+    const [newsDate, setNewsDate] = useState(0);
+
+    const [fromDate, setFromDate] = useState(); // to control get news news From date
+    const [toDate, setToDate] = useState(); // to control current date
 
     const [globalSettings, setGlobalSettings] = useState(false)
+
+    
+    useEffect(() => {
+        // get date and change it to the last 3 days ago date
+        let oldDate = new Date()
+        const currentDate = new Date();
+        oldDate.setDate(oldDate.getDate() - newsDate); // calculate the from date
+
+        setToDate(currentDate.toLocaleDateString())
+        setFromDate(oldDate.toLocaleDateString())
+    }, [newsDate])
+
 
 
     const ApiKey = 'afe532d07ba148329362cacae6343b5e';
 
     useEffect(() => {
-        axios.get(`https://newsapi.org/v2/top-headlines?country=${country}${category ? `&category=${category}` : ''}&apiKey=${ApiKey}`)
+        axios.get(`https://newsapi.org/v2/top-headlines?country=${country}&from=${fromDate}&to=${toDate}${category ? `&category=${category}` : ''}&apiKey=${ApiKey}`)
         .then(Response => {
             const articles = Response.data.articles
             console.log(articles)
@@ -27,15 +43,15 @@ export const NewsProvider = props => {
         }).catch(error => {
             console.log(error)
         })
-    }, [country]);
+    }, [country, fromDate, newsDate]);
 
     // console.log('news Data: ' + mainData)
     // console.log('news Data: ' + `https://newsapi.org/v2/top-headlines?country=${country}${category ? `&category=${category}` : ''}&apiKey=${ApiKey}`)
 
-    // // get date and change it to the last 3 days ago date
-    // const date = new Date()
-    // date.setDate(date.getDate() - 3);
-    // const oldDate = date.toLocaleDateString().toLocaleString()
+
+
+
+
     
     // // the localstorage
     // const getNewsDataFromLS = JSON.parse(localStorage.getItem('newsData'))
@@ -58,7 +74,7 @@ export const NewsProvider = props => {
     // }, []);
 
     return (
-        <NewsContext.Provider value={{mainData, setMainData, setCountry, setCategory, error, loaded, globalSettings, setGlobalSettings}}>
+        <NewsContext.Provider value={{mainData, setMainData, setCountry, setCategory, setNewsDate, error, loaded, globalSettings, setGlobalSettings}}>
             {props.children}
         </NewsContext.Provider>
     ) 
