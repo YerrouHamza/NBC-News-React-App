@@ -45,33 +45,6 @@ export const NewsProvider = props => {
         })
     }, [country, fromDate, newsDate]);
 
-    // console.log('news Data: ' + mainData)
-    // console.log('news Data: ' + `https://newsapi.org/v2/top-headlines?country=${country}${category ? `&category=${category}` : ''}&apiKey=${ApiKey}`)
-
-
-
-
-
-    
-    // // the localstorage
-    // const getNewsDataFromLS = JSON.parse(localStorage.getItem('newsData'))
-    
-    // useEffect(() => {
-    //     if(localStorage.getItem('newsData')) {
-    //         setData(getNewsDataFromLS); // set the data on the main news state
-    //         // console.log(1)
-    //     } else {
-    //         // get news data from news from API 
-    //         axios.get(`https://api.worldnewsapi.com/search-news?api-key=${ApiKey}&earliest-publish-date=${oldDate}&number=10`)
-    //         .then(Response => {
-    //             localStorage.setItem("newsData", JSON.stringify(Response.data.news));
-    //             setData(Response.data.news); // set data from localstorage
-    //         }).catch(error => {
-    //             console.log(error)
-    //         })
-    //         // console.log(2)
-    //     }
-    // }, []);
 
     return (
         <NewsContext.Provider value={{mainData, setMainData, setCountry, setCategory, setNewsDate, error, loaded, globalSettings, setGlobalSettings}}>
