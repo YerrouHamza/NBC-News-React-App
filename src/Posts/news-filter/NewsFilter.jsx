@@ -1,4 +1,5 @@
 import {useContext, useEffect, useState} from 'react';
+import axios from 'axios';
 
 import './newsFilter.scss'; // import style
 import NewsLocation from '../../components/news-location/newsLocation';
@@ -6,15 +7,29 @@ import NewsLocation from '../../components/news-location/newsLocation';
 import { NewsContext } from '../../NewsContext';
 
 function NewsFilter() {
-    const {mainData, setMainData} = useContext(NewsContext); // get data from context
+    const [data, setData] = useState([]);
+    const [newscategory, setNewsCategory] = useState('Think')
 
-    const [data, setData] = useState(mainData)
-    const [maxNews, setMaxNews] = useState(4)
-    const [isActive, setIsActive] = useState(false)
+    const [maxNews, setMaxNews] = useState(4);
+    const [isActive, setIsActive] = useState(false);
 
+
+    const ApiKey = 'afe532d07ba148329362cacae6343b5e';
     useEffect(() => {
-        setData(mainData)
-    }, [mainData])
+        axios.get(`https://newsapi.org/v2/everything?q=${newscategory}&sortBy=relevancy&apiKey=${ApiKey}`)
+        .then(Response => {
+            const articles = Response.data.articles
+            console.log(articles)
+            setData(articles)
+            setLoaded(Response.data ? true : false)
+        }).catch(error => {
+            console.log(error)
+        })
+    }, [newscategory])
+
+    const handelNewsCategory = (e) => {
+        setNewsCategory(e.target.text)
+    }
 
     // handel the chnage post style function
     const handelNewsPostSetting = () => {
@@ -28,9 +43,12 @@ function NewsFilter() {
         <div className='post-filter'>
             <div className="filter">
                 <ul className='filter-items'>
-                    <li className='item'><a href="#" className='active'>Latest Stories</a></li>
-                    <li className='item'><a href="#" className=''>Think</a></li>
-                    <li className='item'><a href="#" className=''>Health</a></li>
+                    <li className='item'><a href="#!" onClick={handelNewsCategory} className={newscategory == 'Think' ? 'active' : ''}>Think</a></li>
+                    <li className='item'><a href="#!" onClick={handelNewsCategory} className={newscategory == 'Health' ? 'active' : ''}>Health</a></li>
+                    <li className='item'><a href="#!" onClick={handelNewsCategory} className={newscategory == 'Finance' ? 'active' : ''}>Finance</a></li>
+                    <li className='item'><a href="#!" onClick={handelNewsCategory} className={newscategory == 'Technology' ? 'active' : ''}>Technology</a></li>
+                    <li className='item'><a href="#!" onClick={handelNewsCategory} className={newscategory == 'Celebrity' ? 'active' : ''}>Celebrity</a></li>
+                    <li className='item'><a href="#!" onClick={handelNewsCategory} className={newscategory == 'Government' ? 'active' : ''}>Government</a></li>
                 </ul>
                 <button className='btn-icon layout-btn' onClick={handelNewsPostSetting}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-adjustments-alt" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
