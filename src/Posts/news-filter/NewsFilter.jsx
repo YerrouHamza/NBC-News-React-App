@@ -7,16 +7,16 @@ import './newsFilter.scss'; // import style
 import { IconLayoutGrid, IconLayoutList } from '@tabler/icons-react'; // import the icons 
 
 // import the components
-import NewsLocation from '../../components/news-location/newsLocation';
+import AsideNews from '../aside-news/asideNews';
 
 
 function NewsFilter() {
     const {country} = useContext(NewsContext); // get the context country
     
     const [data, setData] = useState([]);
-    const [newscategory, setNewsCategory] = useState('general')
+    const [newscategory, setNewsCategory] = useState('business')
     
-    const [maxNews, setMaxNews] = useState(4);
+    const [maxNews, setMaxNews] = useState(5);
     const [isActive, setIsActive] = useState(false);
     
     const ApiKey = 'afe532d07ba148329362cacae6343b5e';
@@ -33,7 +33,6 @@ function NewsFilter() {
     }, [newscategory, country])
 
     const handelNewsCategory = (e) => {
-        const categoryName = e.target.text == 'all' ? 'general' : e.target.text
         setNewsCategory(categoryName)
     }
 
@@ -49,19 +48,19 @@ function NewsFilter() {
         <div className='post-filter'>
             <div className="filter">
                 <ul className='filter-items'>
-                    <li className='item'><a href="#!" onClick={handelNewsCategory} className={newscategory == 'general' ? 'active' : ''}>all</a></li>
                     <li className='item'><a href="#!" onClick={handelNewsCategory} className={newscategory == 'business' ? 'active' : ''}>business</a></li>
                     <li className='item'><a href="#!" onClick={handelNewsCategory} className={newscategory == 'health' ? 'active' : ''}>health</a></li>
                     <li className='item'><a href="#!" onClick={handelNewsCategory} className={newscategory == 'science' ? 'active' : ''}>science</a></li>
                     <li className='item'><a href="#!" onClick={handelNewsCategory} className={newscategory == 'sports' ? 'active' : ''}>sports</a></li>
                     <li className='item'><a href="#!" onClick={handelNewsCategory} className={newscategory == 'technology' ? 'active' : ''}>technology</a></li>
+                    <li className='item'><a href="#!" onClick={handelNewsCategory} className={newscategory == 'entertainment' ? 'active' : ''}>entertainment</a></li>
                 </ul>
                 <button className='btn-icon layout-btn' onClick={handelNewsPostSetting}>
                     { isActive ? <IconLayoutGrid /> : <IconLayoutList /> }
                 </button>
             </div>
             <div className={isActive ? 'posts table' : 'posts grid'}>
-                { data ? data.slice(0, maxNews).map( (news, index) => (
+                { data ? data.slice(1, maxNews).map( (news, index) => (
                     <div className="card" key={index}>
                         <img src={news.urlToImage} alt="" />
                         <div className="card-body">
@@ -79,8 +78,8 @@ function NewsFilter() {
             </div>
             {maxNews === 8 ? <a href="" className='btn btn-border btn-primary'>View All News</a> : <button className='btn btn-border btn-primary' onClick={handelNewsPostsCount}>Veiw More</button> }
         </div>
-        <div className="aside-bar">
-            <NewsLocation />
+        <div className="aside-news">
+            <AsideNews />
         </div>
     </section>   
 }
