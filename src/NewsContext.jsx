@@ -34,7 +34,7 @@ export const NewsProvider = props => {
     const ApiKey = 'afe532d07ba148329362cacae6343b5e';
 
     useEffect(() => {
-        axios.get(`https://newsapi.org/v2/top-headlines?country=${country}&from=${fromDate}&to=${toDate}${category ? `&category=${category}` : ''}&apiKey=${ApiKey}`)
+        axios.get(`https://newsapi.org/v2/top-headlines?country=${country}&from=${toDate}&to=${toDate}${category ? `&category=${category}` : ''}&apiKey=${ApiKey}`)
         .then(Response => {
             const articles = Response.data.articles
             console.log(articles)
@@ -47,7 +47,7 @@ export const NewsProvider = props => {
 
 
     return (
-        <NewsContext.Provider value={{mainData, setMainData, setCountry, setCategory, setNewsDate, error, loaded, globalSettings, setGlobalSettings}}>
+        <NewsContext.Provider value={{mainData, setMainData, country, setCountry, setCategory, setNewsDate, error, loaded, globalSettings, setGlobalSettings}}>
             {props.children}
         </NewsContext.Provider>
     ) 
