@@ -17,10 +17,11 @@
           
             &-items {
                 display: flex;justify-content: flex-start; align-items: center;
+                flex-wrap: wrap;
+                gap: 20px;
                 padding: 10px;
           
                 .item {
-                  margin-right: 20px;
                   text-transform: capitalize;
                 }
           
@@ -81,8 +82,11 @@
               
               img {
                   width: 100%;
+                  min-width: 100%;
                   height: 200px;
                   object-fit: cover;
+
+                  background-color: rgb(193, 193, 193);
               }
           
               &-title {
@@ -126,12 +130,11 @@
             }
           
             &.grid .card {
-              flex: 1 1 405px;
               max-width: 405px;
             } 
             &.table .card {
-              flex: 1 1 1;
               max-width: 100%;
+              width: 100%;
             }
           
             .btn {

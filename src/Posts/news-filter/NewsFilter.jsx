@@ -33,7 +33,7 @@ function NewsFilter() {
     }, [newscategory, country])
 
     const handelNewsCategory = (e) => {
-        setNewsCategory(categoryName)
+        setNewsCategory(e.target.text)
     }
 
     // handel the chnage post style function
