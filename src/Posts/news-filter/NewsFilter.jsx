@@ -10,11 +10,15 @@ import { IconLayoutGrid, IconLayoutList } from '@tabler/icons-react'; // import 
 import AsideNews from '../aside-news/asideNews';
 
 
+import SkeletonPost from '../../components/skeleton/SkeletonPost';
+
+
 function NewsFilter() {
     const {country} = useContext(NewsContext); // get the context country
     
     const [data, setData] = useState([]);
     const [newscategory, setNewsCategory] = useState('business')
+    const [loaded, setLoaded] = useState(false)
     
     const [maxNews, setMaxNews] = useState(5);
     const [isActive, setIsActive] = useState(false);
@@ -24,15 +28,18 @@ function NewsFilter() {
         axios.get(`https://newsapi.org/v2/top-headlines?category=${newscategory}&country=${country}&apiKey=${ApiKey}`)
         .then(Response => {
             const articles = Response.data.articles
-            console.log(articles)
-            setData(articles)
-            setLoaded(Response.data ? true : false)
+
+            setTimeout(() => {
+                setData(articles)
+                setLoaded(Response.data ? true : false)
+            }, 1000);
         }).catch(error => {
             console.log(error)
         })
     }, [newscategory, country])
 
     const handelNewsCategory = (e) => {
+        setLoaded(false)
         setNewsCategory(e.target.text)
     }
 
@@ -60,7 +67,7 @@ function NewsFilter() {
                 </button>
             </div>
             <div className={isActive ? 'posts table' : 'posts grid'}>
-                { data ? data.slice(1, maxNews).map( (news, index) => (
+                {loaded ? data.slice(1, maxNews).map( (news, index) => (
                     <div className="card" key={index}>
                         <img src={news.urlToImage} alt="" />
                         <div className="card-body">
@@ -74,7 +81,9 @@ function NewsFilter() {
                             </div>
                         </div>
                     </div>
-                )) : <div className="card no-data">NO data</div> }
+                )) : <SkeletonPost />}
+
+                
             </div>
             {maxNews === 8 ? <a href="" className='btn btn-border btn-primary'>View All News</a> : <button className='btn btn-border btn-primary' onClick={handelNewsPostsCount}>Veiw More</button> }
         </div>
