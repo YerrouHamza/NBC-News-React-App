@@ -3,11 +3,13 @@ import { useState, useEffect, useContext } from "react"
 
 import { NewsContext } from '../../NewsContext';
 
+import SkeletonSlider from '../../components/skeleton/SkeletonSlider';
+
 
 function NewsSlider() {
 
     // const [data, setData] = useState();
-    const {mainData, setMainData} = useContext(NewsContext);
+    const {mainData, loaded} = useContext(NewsContext);
 
     const [data, setData] = useState(mainData);
     const [currentSlider, setCurrentSlider] = useState(0);
@@ -54,8 +56,8 @@ function NewsSlider() {
         <div className="slider">
             <h2 className='section-title'>Editor’s Picks</h2>
             <div className="slider-container" style={sliderControl}>
-                {data.slice(0, 6).map((news, index) => (
-                    <a className="card animation-outline" key={index} href="">
+                { loaded ? data.slice(0, 6).map((news, index) => (
+                    <a className="card animation-outline" key={index} href={news.url} target='_blank'>
                         <div className='card-body'>
                             <div className="card-img">
                                 <img src={news.urlToImage}/>
@@ -72,8 +74,10 @@ function NewsSlider() {
                                 <p className="text">{news.description}</p>
                             </div>
                         </div>
-                    </a>
-                ))}
+                    </a>)) : [...Array(6)].map((i) => (
+                        <SkeletonSlider key={i} />
+                    ))
+                }
             </div>
             <div className="slider-controls">
                 {data.slice(0, 6).map((news, index) => (
