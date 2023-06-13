@@ -25,6 +25,7 @@ function NewsFilter() {
     
     const ApiKey = 'afe532d07ba148329362cacae6343b5e';
     useEffect(() => {
+        setLoaded(false)
         axios.get(`https://newsapi.org/v2/top-headlines?category=${newscategory}&country=${country}&apiKey=${ApiKey}`)
         .then(Response => {
             const articles = Response.data.articles
@@ -39,7 +40,6 @@ function NewsFilter() {
     }, [newscategory, country])
 
     const handelNewsCategory = (e) => {
-        setLoaded(false)
         setNewsCategory(e.target.text)
     }
 
