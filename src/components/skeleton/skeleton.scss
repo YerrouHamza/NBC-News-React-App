@@ -1,5 +1,5 @@
 .skeleton {
-    &.card {
+    &-post {
         width: calc(50% - 10px);
         
         .image {
@@ -38,7 +38,7 @@
                 width: 30%;
             }
         }
-    }    
+    }
 }
 
 /* animation */
