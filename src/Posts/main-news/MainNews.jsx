@@ -3,12 +3,15 @@ import postImage from '../../assets/mbc-main-post-test.png'
 import { useContext } from 'react'
 import {NewsContext} from '../../NewsContext';
 
+
+import SkeletonMainPost from '../../components/skeleton/SkeletonMainPost';
+
 function MainNews() {
 
-  const {mainData} = useContext(NewsContext) // get data from context
+  const {mainData, loaded} = useContext(NewsContext) // get data from context
   
   return <>
-  {mainData.slice(0, 1).map((news, index) => (
+  {loaded ? mainData.slice(0, 1).map((news, index) => (
     <div className="post post-style-main" key={index}>
       <img className='post-img' src={news.urlToImage} alt="the Trending image" />
       <div className="post-content">
@@ -24,12 +27,14 @@ function MainNews() {
             <span>{'2'}</span> hours ago
           </p>
           <p className='posted-by'>
-           By <span>{news.creator ? news.creator : 'Anonymous'}</span>
+          By <span>{news.creator ? news.creator : 'Anonymous'}</span>
           </p>
         </div>
       </div>
     </div>
-  ))}
+
+  )) : <SkeletonMainPost />
+}
   </>
 }
 
