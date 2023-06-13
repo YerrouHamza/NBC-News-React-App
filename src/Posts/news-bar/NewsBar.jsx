@@ -9,8 +9,6 @@ import SkeletonBar from '../../components/skeleton/SkeletonBar';
 function NewsBar() {
 
   const {mainData, loaded} = useContext(NewsContext) 
-
-  //  console.log(data[0][0].title)
   
   return <>
     { loaded ? mainData.slice(1, 2).map((news, index) => (
