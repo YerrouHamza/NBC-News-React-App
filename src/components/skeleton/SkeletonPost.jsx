@@ -2,7 +2,7 @@ import './skeleton.scss';
 
 function SkeletonPost() {
   return (
-    <div className="skeleton-post card">
+    <div className="skeleton skeleton-post card">
         <div className='image'></div>
         <div className="card-body">
             <div className="card-head">
