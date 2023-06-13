@@ -81,7 +81,10 @@ function NewsFilter() {
                             </div>
                         </div>
                     </div>
-                )) : <SkeletonPost />}
+                )) : [...Array(maxNews - 1)].map((i) =>
+                        <SkeletonPost key={i} />
+                    )
+                }
 
                 
             </div>
