@@ -75,8 +75,9 @@
         background-color: #ffffff;
         display: flex;
         align-items: center;
+        justify-content: center;
         .text {
-            width: 100%;
+            width: 70%;
             span {
                 display: block;
                 width: 100%;
@@ -122,6 +123,20 @@
             }
         }
     }
+
+    &-aside {
+        width: 100%;
+
+        .subtitle {
+            margin-bottom: 20px;
+        }
+
+        .image {
+            height: 250px;
+            margin-bottom: 10px;
+        }
+    }
+
 }
 
 /* animation */
