@@ -5,7 +5,7 @@ function SkeletonMainPost() {
     <div className="skeleton skeleton-main post">
       <div className='post-img image' alt="the Trending image"></div>
       <div className="post-content">
-        <div className='subtitle'></div>
+      <h4 className='tag'>Trending</h4>
         <div className='title'></div>
         <div className='text'>
           <span></span>
