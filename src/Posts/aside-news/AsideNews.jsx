@@ -1,22 +1,24 @@
-import { useState, useContext } from 'react';
-
+import { useContext } from 'react';
 import { NewsContext } from '../../NewsContext';
 
 import './asideNews.scss'
 
+import SkeletonAside from '../../components/skeleton/SkeletonAside';
+
 
 function AsideNews() {
 
-    const {mainData} = useContext(NewsContext); // get the context country
+    const {mainData, loaded} = useContext(NewsContext); // get the context country
 
     return <>
-        {mainData.slice(1, 2).map((news, index) => (
+        <h4 className='aside-news-tag'>Top headline</h4>
+        { loaded ? mainData.slice(1, 2).map((news, index) => (
             <div key={index}>
-                <h4 className='aside-news-tag'>Top headline</h4>
                 <img className='aside-news-image' src={news.urlToImage} alt="" />
                 <h2 className='aside-news-title'>{news.title}</h2>
             </div>
-        ))}
+            )) : <SkeletonAside />
+        }
     </>
 }
 
