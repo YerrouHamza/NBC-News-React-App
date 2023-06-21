@@ -1,7 +1,10 @@
 import React from 'react'
+import { useParams } from 'react-router-dom';
 
 function News() {
-    const newsCategory = useMatch('/news/:category')
+    const { category } = useParams();
+    console.log(category)
+
 
   return (
     <div>News</div>

@@ -1,5 +1,7 @@
 import { useState, useContext } from 'react';
 
+import { Link } from 'react-router-dom'
+
 import './navbar.scss'
 import logo from '../../assets/nbc-logo.svg'
 
@@ -21,27 +23,27 @@ function Navbar() {
         </a>
         <nav className='menu'>
           <ul className='navlist'>
-              <li>
-                <a className='navlist-item animation-underline' href="#">Corona Updates</a>
-              </li>
-              <li>
-                <a className='navlist-item animation-underline' href="#">Politics</a>
-              </li>
-              <li>
-                <a className='navlist-item animation-underline' href="#">Business</a>
-              </li>
-              <li>
-                <a className='navlist-item animation-underline' href="#">Sports</a>
-              </li>
-              <li>
-                <a className='navlist-item animation-underline' href="#">World</a>
-              </li>
-              <li>
-                <a className='navlist-item animation-underline' href="#">Travel</a>
-              </li>
-              <li>
-                <a className='navlist-item animation-underline' href="#">Podcasts</a>
-              </li>
+            <li>
+              <Link to='/news/business' className='navlist-item animation-underline' href="#">Business</Link>
+            </li>
+            <li>
+              <Link to='/news/entertainment' className='navlist-item animation-underline' href="#">Entertainment</Link>
+            </li>
+            <li>
+              <Link to='/news/general' className='navlist-item animation-underline' href="#">General</Link>
+            </li>
+            <li>
+              <Link to='/news/health' className='navlist-item animation-underline' href="#">Health</Link>
+            </li>
+            <li>
+              <Link to='/news/science' className='navlist-item animation-underline' href="#">Science</Link>
+            </li>
+            <li>
+              <Link to='/news/sports' className='navlist-item animation-underline' href="#">Sports</Link>
+            </li>
+            <li>
+              <Link to='/news/technology' className='navlist-item animation-underline' href="#">Technology</Link>
+            </li>
           </ul>
         </nav>
         <div className="tools">
