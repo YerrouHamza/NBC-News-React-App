@@ -1,12 +1,17 @@
-import Home from './pages/home/Home'
+import {BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import { NewsProvider } from './NewsContext'
+import Home from './pages/home/Home'
+import News from './pages/newsPage/News'
+
 
 function App() {
   return (
-    <NewsProvider>
-      <Home />
-    </NewsProvider>
+    <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/news/:category' element={<News />} />
+        </Routes>
+      </BrowserRouter>
   )
 }
 
