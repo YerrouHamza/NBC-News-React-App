@@ -1,5 +1,6 @@
-import './newsSlider.scss'
 import { useState, useEffect, useContext } from "react"
+
+import './newsSlider.scss'
 
 import { NewsContext } from '../../NewsContext';
 
