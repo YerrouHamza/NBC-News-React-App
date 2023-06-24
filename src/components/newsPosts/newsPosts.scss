@@ -1,0 +1,60 @@
+.card {
+  height: auto;
+  background-color: #ffffff;
+
+  &-body {
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 220px;
+  }
+  
+  img {
+      width: 100%;
+      min-width: 100%;
+      height: 200px;
+      object-fit: cover;
+
+      background-color: rgb(193, 193, 193);
+  }
+
+  &-title {
+
+    margin-bottom: 10px;
+
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+            line-clamp: 3; 
+    -webkit-box-orient: vertical;
+  }
+
+  &-text {
+    font-size: 16px;
+    color: #3e3e3e;
+
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+            line-clamp: 4; 
+    -webkit-box-orient: vertical;
+  }
+
+  &-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+
+    .card-author {
+      color: rgb(55, 55, 55);
+      text-transform: capitalize;
+    }
+  }
+
+  &.no-data {
+    padding: 10px 20px;
+    color: var(--danger-color);
+  }
+}

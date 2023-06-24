@@ -8,7 +8,7 @@ import { IconLayoutGrid, IconLayoutList } from '@tabler/icons-react'; // import 
 
 // import the components
 import AsideNews from '../aside-news/asideNews';
-
+import NewsPost from '../../components/newsPosts/NewsPost'; // import the news card component
 
 import SkeletonPost from '../../components/skeleton/SkeletonPost';
 
@@ -68,19 +68,14 @@ function NewsFilter() {
             </div>
             <div className={isActive ? 'posts table' : 'posts grid'}>
                 {loaded ? data.slice(1, maxNews).map( (news, index) => (
-                    <div className="card" key={index}>
-                        <img src={news.urlToImage} alt="" />
-                        <div className="card-body">
-                            <div className="card-head">
-                                <h4 className='card-title'>{news.title}</h4>
-                                <p className='card-text'>{news.description}</p>
-                            </div>
-                            <div className="card-footer">
-                                <p className='card-author'>{news.creator ? news.creator : 'Anonymous'}</p>
-                                <a href={news.url} target='_blank' className='btn-clear animation-underline'>View More</a>
-                            </div>
-                        </div>
-                    </div>
+                    <NewsPost 
+                        index={index}
+                        image={news.urlToImage}
+                        title={news.title}
+                        description={news.description}
+                        creator={news.creator}
+                        url={news.url}
+                    />
                 )) : [...Array(maxNews - 1)].map((i) =>
                         <SkeletonPost key={i} />
                     )
@@ -88,7 +83,9 @@ function NewsFilter() {
 
                 
             </div>
-            {maxNews === 8 ? <a href="" className='btn btn-border btn-primary'>View All News</a> : <button className='btn btn-border btn-primary' onClick={handelNewsPostsCount}>Veiw More</button> }
+            {maxNews === 8 
+                ? <a href="" className='btn btn-border btn-primary'>View All News</a>
+                : <button className='btn btn-border btn-primary' onClick={handelNewsPostsCount}>Veiw More</button> }
         </div>
         <div className="aside-news">
             <AsideNews />
