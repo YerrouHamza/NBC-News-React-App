@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 
 import { Link } from 'react-router-dom'
 
@@ -7,13 +7,22 @@ import logo from '../../assets/nbc-logo.svg'
 
 import { NewsContext } from '../../NewsContext';
 
-function Navbar() {
+function Navbar({activeItem}) {
   
+  console.log(activeItem)
+
+  const {activeCategory, setActiveCategory} = useState('Business')
   const {globalSettings, setGlobalSettings} = useContext(NewsContext);
 
   const handelOpenGlobalSettings = () => {
     setGlobalSettings(true)
   }
+
+  // useEffect(() => {
+  //   setActiveCategory(activeItem)
+  //   console.log(activeCategory)
+  // }, [])
+  
   
   return (
     <nav className='navbar'>
@@ -24,25 +33,25 @@ function Navbar() {
         <nav className='menu'>
           <ul className='navlist'>
             <li>
-              <Link to='/news/business' className='navlist-item animation-underline' href="#">Business</Link>
+              <Link to='/news/business' className={ activeCategory == 'Business' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Business</Link>
             </li>
             <li>
-              <Link to='/news/entertainment' className='navlist-item animation-underline' href="#">Entertainment</Link>
+              <Link to='/news/entertainment' className={ activeCategory === 'Entertainment' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Entertainment</Link>
             </li>
             <li>
-              <Link to='/news/general' className='navlist-item animation-underline' href="#">General</Link>
+              <Link to='/news/general' className={ activeCategory === 'General' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">General</Link>
             </li>
             <li>
-              <Link to='/news/health' className='navlist-item animation-underline' href="#">Health</Link>
+              <Link to='/news/health' className={ activeCategory === 'Health' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Health</Link>
             </li>
             <li>
-              <Link to='/news/science' className='navlist-item animation-underline' href="#">Science</Link>
+              <Link to='/news/science' className={ activeCategory === 'Science' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Science</Link>
             </li>
             <li>
-              <Link to='/news/sports' className='navlist-item animation-underline' href="#">Sports</Link>
+              <Link to='/news/sports' className={ activeCategory === 'Sports' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Sports</Link>
             </li>
             <li>
-              <Link to='/news/technology' className='navlist-item animation-underline' href="#">Technology</Link>
+              <Link to='/news/technology' className={ activeCategory === 'Technology' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Technology</Link>
             </li>
           </ul>
         </nav>
