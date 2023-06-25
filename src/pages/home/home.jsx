@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 
 import './home.scss'; // import the style
 
@@ -14,8 +13,7 @@ import Footer from '../../components/footer/footer';
 
 function Home() {
   return <main className='home'>
-    test
-    {/* <Navbar />
+    <Navbar />
     <ControlBar />
     <header className="haeder">
       <MainNews/>
@@ -23,7 +21,7 @@ function Home() {
     <NewsBar />
     <NewsFilter />
     <NewsSlider />
-    <Footer /> */}
+    <Footer />
   </main>
 }
 
