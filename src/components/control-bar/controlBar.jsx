@@ -1,9 +1,10 @@
 import { useContext, useState } from 'react';
 
-import './controlBar.scss';
-import { IconSquareRoundedArrowRight } from '@tabler/icons-react';
-
 import { NewsContext } from '../../NewsContext'; // import the data from the context state
+
+import './controlBar.scss'; // import the ControlBar style
+import { IconSquareRoundedArrowRight } from '@tabler/icons-react'; // import the icons form the https://tabler-icons.io/
+
 
 
 function ControlBar() {
@@ -48,23 +49,6 @@ function ControlBar() {
           </div>
           
           <h4 className='controls-subtitle'>News Settings</h4>
-          {/* control the global news category */}
-          {/* <div className="form-control">
-            <fieldset>
-              <legend>News categorys</legend>
-              <ul className='controls-list'>
-                <li className="controls-list-item active" value="business">Business</li>
-                <li className="controls-list-item" value="entertainment">Entertainment</li>
-                <li className="controls-list-item" value="general">General</li>
-                <li className="controls-list-item" value="health">Health</li>
-                <li className="controls-list-item" value="science">Science</li>
-                <li className="controls-list-item" value="sports">Sports</li>
-                <li className="controls-list-item" value="technology">Technology</li>
-              </ul>
-            </fieldset>
-            <p className="help-block">Select The Global News Category</p>
-          </div> */}
-          
           {/* control The Global News location */}
           <div className="form-control">
             <fieldset>

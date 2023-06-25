@@ -5,7 +5,7 @@ import { NewsContext } from '../../NewsContext'; // import the data from the con
 
 import './navbar.scss'; // import the Navbar style
 import logo from '../../assets/nbc-logo.svg'; // import the logo
-import { IconMenu2, IconSearch, IconUserCircle } from '@tabler/icons-react'; // import the icons form the https://tabler-icons.io/
+import { IconMenu2, IconSearch, IconUserCircle } from '@tabler/icons-react'; // import the icons form the https://tabler-icons.io/ // import the icons form the https://tabler-icons.io/
 
 function Navbar({activeItem}) {
   

@@ -5,7 +5,7 @@ import { NewsContext } from '../../NewsContext'; // import the data from the con
 
 
 import './newsFilter.scss'; // import style
-import { IconLayoutGrid, IconLayoutList } from '@tabler/icons-react'; // import the icons 
+import { IconLayoutGrid, IconLayoutList } from '@tabler/icons-react'; // import the icons form the https://tabler-icons.io/ // import the icons 
 
 // import the components
 import AsideNews from '../aside-news/asideNews';
