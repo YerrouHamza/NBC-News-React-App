@@ -39,7 +39,7 @@
                     height: 3px;
                     width: 0;
                     max-width: 30px;
-                    background-color: var(--danger-color);
+                    background-color: var(--primary-color);
           
                     transition: all .3s ease-in-out;
                   }
@@ -55,7 +55,7 @@
               cursor: pointer;
           
               &:is(:hover, :active) svg {
-                stroke: var(--danger-color);
+                stroke: var(--primary-color);
               }
             }
         }

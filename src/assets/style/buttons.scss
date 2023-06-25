@@ -5,7 +5,7 @@
     border: none;
 
     &-primary {
-        background-color: var(--danger-color);
+        background-color: var(--primary-color);
         color: #ffffff;
         padding: 9px 20px;
         outline: 2px solid;
@@ -16,7 +16,7 @@
         
         &:is(:hover) {
             outline-offset: 2px;
-            outline-color: var(--danger-color);
+            outline-color: var(--primary-color);
         }
         &:is(:active, :focus) {
             outline-offset: 3px;
@@ -24,13 +24,13 @@
     }
 
     &-border {
-        color: var(--danger-color);
+        color: var(--primary-color);
         background-color: transparent;
-        border: 1px solid var(--danger-color);
+        border: 1px solid var(--primary-color);
         transition: all .3s ease-in-out;
         
         &:is(:hover, :active) {
-            background-color: var(--danger-color);
+            background-color: var(--primary-color);
             color: #ffffff;
         }
     }

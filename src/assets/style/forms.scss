@@ -23,7 +23,7 @@
             border: 1px solid #c1bcbc;
     
             &:is(:focus, :active) {
-                border-color: var(--danger-color);
+                border-color: var(--primary-color);
                 box-shadow: none !important;
             }
         }

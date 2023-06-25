@@ -82,8 +82,8 @@ footer {
 
                         &:is(:hover) {
                             svg, a {
-                                color: var(--danger-color);
-                                stroke: var(--danger-color);
+                                color: var(--primary-color);
+                                stroke: var(--primary-color);
                             }
                         }
                     }

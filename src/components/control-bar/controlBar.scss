@@ -51,7 +51,7 @@
                 }
     
                 &:is(:hover, :active) svg {
-                    stroke: var(--danger-color);
+                    stroke: var(--primary-color);
                     transform: scale(1.01) translateX(5px);
                 }
             }
@@ -82,7 +82,7 @@
                 transition: all .3s ease-in-out;
                 
                 &:is(:hover, :focus, :active), &.active {
-                    background-color: var(--danger-color);
+                    background-color: var(--primary-color);
                     color: #ffffff;
                     transform: scale(1.02);
                 }
