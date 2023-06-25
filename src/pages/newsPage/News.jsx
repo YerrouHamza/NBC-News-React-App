@@ -13,6 +13,8 @@ import Footer from '../../components/footer/footer';
 import NewsPost from '../../components/newsPosts/NewsPost';
 import SkeletonPost from '../../components/skeleton/SkeletonPost';
 
+import NewsHorizontalPost from '../../components/newsPosts/NewsHorizontalPost';
+
 function News() {
     const { category } = useParams();
 
@@ -58,6 +60,9 @@ function News() {
     <main className='news-page'>
       <Navbar activeItem={newscategory} />
       <ControlBar />
+      <section>
+        <NewsHorizontalPost  />
+      </section>
       <section className='news-section'>
         <div className='posts'>
           {loaded ? data.slice(0, maxNews).map( (news, index) => (
