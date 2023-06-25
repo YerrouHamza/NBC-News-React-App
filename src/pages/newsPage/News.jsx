@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 
 import './news.scss' // import the style
 
-import { NewsContext } from '../../NewsContext';
+import { NewsContext } from '../../NewsContext'; // import the data from the context state
+
 
 // import the components
 import Navbar from '../../components/navbar/Navbar';

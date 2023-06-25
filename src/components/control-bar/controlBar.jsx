@@ -3,7 +3,8 @@ import { useContext, useState } from 'react';
 import './controlBar.scss';
 import { IconSquareRoundedArrowRight } from '@tabler/icons-react';
 
-import { NewsContext } from '../../NewsContext';
+import { NewsContext } from '../../NewsContext'; // import the data from the context state
+
 
 function ControlBar() {
 

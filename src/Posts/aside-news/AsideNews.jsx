@@ -1,5 +1,6 @@
 import { useContext } from 'react';
-import { NewsContext } from '../../NewsContext';
+import { NewsContext } from '../../NewsContext'; // import the data from the context state
+
 
 import './asideNews.scss'
 

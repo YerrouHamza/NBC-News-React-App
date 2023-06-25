@@ -1,7 +1,8 @@
 import {useContext, useEffect, useState} from 'react';
 import axios from 'axios';
 
-import { NewsContext } from '../../NewsContext';
+import { NewsContext } from '../../NewsContext'; // import the data from the context state
+
 
 import './newsFilter.scss'; // import style
 import { IconLayoutGrid, IconLayoutList } from '@tabler/icons-react'; // import the icons 

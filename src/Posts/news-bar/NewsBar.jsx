@@ -1,7 +1,8 @@
 import { useContext, useEffect } from 'react'
 import './newsBar.scss'
 
-import { NewsContext } from '../../NewsContext';
+import { NewsContext } from '../../NewsContext'; // import the data from the context state
+
 
 import SkeletonBar from '../../components/skeleton/SkeletonBar';
 

@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'
 import './navbar.scss'
 import logo from '../../assets/nbc-logo.svg'
 
-import { NewsContext } from '../../NewsContext';
+import { NewsContext } from '../../NewsContext'; // import the data from the context state
+ // import the data from the context state
 
 function Navbar({activeItem}) {
   

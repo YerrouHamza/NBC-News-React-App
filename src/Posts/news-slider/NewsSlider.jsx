@@ -2,7 +2,8 @@ import { useState, useEffect, useContext } from "react"
 
 import './newsSlider.scss'
 
-import { NewsContext } from '../../NewsContext';
+import { NewsContext } from '../../NewsContext'; // import the data from the context state
+
 
 import SkeletonSlider from '../../components/skeleton/SkeletonSlider';
 
