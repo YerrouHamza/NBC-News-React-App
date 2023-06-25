@@ -19,24 +19,48 @@
         margin-bottom: 15px;
     }
 
-    .posts {
-        min-height: 50vh;
+    .news-section {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 20px 20px;
+        flex-direction: column;
+        gap: 40px;
+        justify-content: center;
+        align-items: center;
 
-        .card {
-            width: calc(33% - 20px)
+        .posts {
+            min-height: 50vh;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 20px 20px;
+    
+            .card {
+                width: calc(33% - 20px)
+            }
         }
     }
+
     
-    @media only screens and (max-width: 900px) {
-        .posts {
-            gap: 10px 10px;
-            .card {
-                width: calc(50% - 10px)
+    @media only screen and (max-width: 900px) {
+        .news-section {
+            .posts {
+                gap: 10px 10px;
+    
+                .card {
+                    width: calc(50% - 10px)
+                }
+            }   
+        }
+    }
+
+    @media only screen and (max-width: 759px) {
+        .news-section {
+            .posts {
+                gap: 20px 0;
+    
+                .card {
+                    width: 100%;
+                }
             }
-        }   
+        }
     }
 }

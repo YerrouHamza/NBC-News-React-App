@@ -1,11 +1,10 @@
 import {useState, useContext, useEffect} from 'react'
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
-
-import './news.scss' // import the style
+import { useParams } from 'react-router-dom'; 
 
 import { NewsContext } from '../../NewsContext'; // import the data from the context state
 
+import './news.scss' // import News the style
 
 // import the components
 import Navbar from '../../components/navbar/Navbar';
@@ -18,12 +17,12 @@ function News() {
     const { category } = useParams();
 
     const {country} = useContext(NewsContext); // get the context country
-    
     const [data, setData] = useState([]);
     const [newscategory, setNewsCategory] = useState('Business')
     const [loaded, setLoaded] = useState(false)
-    
+
     const [maxNews, setMaxNews] = useState(18);
+    const [displayButton, setDisplayButton] = useState(true)
 
     useEffect(() => {
       setNewsCategory(category)
@@ -33,7 +32,7 @@ function News() {
     const ApiKey = 'afe532d07ba148329362cacae6343b5e'; // api key
     useEffect(() => {
         setLoaded(false)
-        axios.get(`https://newsapi.org/v2/top-headlines?category=${newscategory}&country=${country}&apiKey=${ApiKey}`)
+        axios.get(`https://newsapi.org/v2/top-headlines?category=${newscategory}&country=${country}&pageSize=${maxNews}&apiKey=${ApiKey}`)
         .then(Response => {
             const articles = Response.data.articles
             setData(articles)
@@ -43,27 +42,41 @@ function News() {
         }).catch(error => {
             console.log(error)
         })
-    }, [newscategory, country])
+    }, [newscategory, country, maxNews])
+
+
+    const handelGetMoreNews = (e) => {
+      if(maxNews === 100) {
+        setDisplayButton(false)
+      } else {
+        setMaxNews(maxNews + 10)
+      }
+    }
 
 
   return (
     <main className='news-page'>
       <Navbar activeItem={newscategory} />
       <ControlBar />
-      <section className='posts'>
-        {loaded ? data.slice(0, maxNews).map( (news, index) => (
-          <NewsPost 
-              index={index}
-              image={news.urlToImage}
-              title={news.title}
-              description={news.description}
-              creator={news.creator}
-              url={news.url}
-          />
-        )) : [...Array(maxNews - 1)].map((i) =>
-            <SkeletonPost key={i} />
-          )
-        }
+      <section className='news-section'>
+        <div className='posts'>
+          {loaded ? data.slice(0, maxNews).map( (news, index) => (
+            <NewsPost 
+                index={index}
+                image={news.urlToImage}
+                title={news.title}
+                description={news.description}
+                creator={news.creator}
+                url={news.url}
+            />
+          )) : [...Array(maxNews - 1)].map((i) =>
+              <SkeletonPost key={i} />
+            )
+          }
+        </div>
+        <button class={displayButton ? "btn btn-border btn-primary" : "btn btn-border btn-primary display"} onClick={handelGetMoreNews}>
+          {displayButton ? 'Veiw More News' : 'No More News!!'}
+        </button>
       </section>
       <Footer />
     </main>
