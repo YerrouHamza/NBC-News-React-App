@@ -1,5 +1,5 @@
 
-import './home.scss'; // import the style
+import './home.scss'; // import the Home style
 
 // import the components
 import Navbar from '../../components/navbar/Navbar';
