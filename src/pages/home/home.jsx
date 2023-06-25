@@ -14,7 +14,8 @@ import Footer from '../../components/footer/footer';
 
 function Home() {
   return <main className='home'>
-    <Navbar />
+    test
+    {/* <Navbar />
     <ControlBar />
     <header className="haeder">
       <MainNews/>
@@ -22,7 +23,7 @@ function Home() {
     <NewsBar />
     <NewsFilter />
     <NewsSlider />
-    <Footer />
+    <Footer /> */}
   </main>
 }
 
