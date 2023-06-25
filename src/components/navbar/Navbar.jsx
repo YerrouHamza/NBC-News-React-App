@@ -9,49 +9,47 @@ import { NewsContext } from '../../NewsContext';
 
 function Navbar({activeItem}) {
   
-  console.log(activeItem)
-
-  const {activeCategory, setActiveCategory} = useState('Business')
+  
+  const [activeCategory, setActiveCategory] = useState()
   const {globalSettings, setGlobalSettings} = useContext(NewsContext);
-
+  
   const handelOpenGlobalSettings = () => {
     setGlobalSettings(true)
   }
 
-  // useEffect(() => {
-  //   setActiveCategory(activeItem)
-  //   console.log(activeCategory)
-  // }, [])
+  useEffect(() => {
+    setActiveCategory(activeItem)
+  }, [activeItem])
   
   
   return (
     <nav className='navbar'>
       <div className="navbar-content">
-        <a className="logo" href='#'>
-          <img src={logo} alt="" />
-        </a>
+        <Link to='/' className="logo">
+          <img src={logo} alt="NBC Logo" />
+        </Link>
         <nav className='menu'>
           <ul className='navlist'>
             <li>
-              <Link to='/news/business' className={ activeCategory == 'Business' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Business</Link>
+              <Link to='/news/business' className={ activeCategory == 'business' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Business</Link>
             </li>
             <li>
-              <Link to='/news/entertainment' className={ activeCategory === 'Entertainment' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Entertainment</Link>
+              <Link to='/news/entertainment' className={ activeCategory === 'entertainment' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Entertainment</Link>
             </li>
             <li>
-              <Link to='/news/general' className={ activeCategory === 'General' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">General</Link>
+              <Link to='/news/general' className={ activeCategory === 'general' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">General</Link>
             </li>
             <li>
-              <Link to='/news/health' className={ activeCategory === 'Health' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Health</Link>
+              <Link to='/news/health' className={ activeCategory === 'health' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Health</Link>
             </li>
             <li>
-              <Link to='/news/science' className={ activeCategory === 'Science' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Science</Link>
+              <Link to='/news/science' className={ activeCategory === 'science' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Science</Link>
             </li>
             <li>
-              <Link to='/news/sports' className={ activeCategory === 'Sports' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Sports</Link>
+              <Link to='/news/sports' className={ activeCategory === 'sports' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Sports</Link>
             </li>
             <li>
-              <Link to='/news/technology' className={ activeCategory === 'Technology' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Technology</Link>
+              <Link to='/news/technology' className={ activeCategory === 'technology' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Technology</Link>
             </li>
           </ul>
         </nav>

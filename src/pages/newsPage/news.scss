@@ -27,8 +27,16 @@
         gap: 20px 20px;
 
         .card {
-            min-width: calc(33% - 20px);
-            width: calc(50% - 20px);
+            width: calc(33% - 20px)
         }
+    }
+    
+    @media only screens and (max-width: 900px) {
+        .posts {
+            gap: 10px 10px;
+            .card {
+                width: calc(50% - 10px)
+            }
+        }   
     }
 }
