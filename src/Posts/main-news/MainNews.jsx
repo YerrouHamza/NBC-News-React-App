@@ -33,7 +33,7 @@ function MainNews() {
       </div>
     </div>
 
-  )) : <SkeletonMainPost />
+  )) : <SkeletonMainPost tag="Trendings" />
 }
   </>
 }

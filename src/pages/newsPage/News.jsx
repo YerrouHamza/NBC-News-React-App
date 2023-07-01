@@ -11,7 +11,9 @@ import Navbar from '../../components/navbar/Navbar';
 import ControlBar from '../../components/control-bar/controlBar';
 import Footer from '../../components/footer/footer';
 import NewsPost from '../../components/newsPosts/NewsPost';
-import SkeletonPost from '../../components/skeleton/SkeletonPost';
+
+import SkeletonPost from '../../components/skeleton/SkeletonPost'; // import the skeleton post
+import SkeletonMainPost from '../../components/skeleton/SkeletonMainPost';
 
 import NewsHorizontalPost from '../../components/newsPosts/NewsHorizontalPost';
 
@@ -23,7 +25,7 @@ function News() {
     const [newscategory, setNewsCategory] = useState('Business')
     const [loaded, setLoaded] = useState(false)
 
-    const [maxNews, setMaxNews] = useState(18);
+    const [maxNews, setMaxNews] = useState(19);
     const [displayButton, setDisplayButton] = useState(true)
 
     useEffect(() => {
@@ -51,7 +53,7 @@ function News() {
       if(maxNews === 100) {
         setDisplayButton(false)
       } else {
-        setMaxNews(maxNews + 10)
+        setMaxNews(maxNews + 11)
       }
     }
 
@@ -61,11 +63,24 @@ function News() {
       <Navbar activeItem={newscategory} />
       <ControlBar />
       <section>
-        <NewsHorizontalPost  />
+        {
+          loaded ? data.slice(0, 1).map((news, index) => (
+            <NewsHorizontalPost 
+              image={news.urlToImage}
+              title={news.title}
+              description={news.description}
+              creator={news.creator}
+              url={news.url}
+              tag="Top Headline"
+              index={index} 
+            />
+          ))
+          : <SkeletonMainPost tag="Top Headline" />
+        }
       </section>
       <section className='news-section'>
         <div className='posts'>
-          {loaded ? data.slice(0, maxNews).map( (news, index) => (
+          {loaded ? data.slice(1, maxNews).map( (news, index) => (
             <NewsPost 
                 index={index}
                 image={news.urlToImage}

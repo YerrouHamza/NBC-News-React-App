@@ -1,11 +1,11 @@
 import './skeleton.scss';
 
-function SkeletonMainPost() {
+function SkeletonMainPost({tag}) {
   return (
     <div className="skeleton skeleton-main post">
       <div className='post-img image' alt="the Trending image"></div>
       <div className="post-content">
-      <h4 className='tag'>Trending</h4>
+      <h4 className='tag'>{tag}</h4>
         <div className='title'></div>
         <div className='text'>
           <span></span>
@@ -14,10 +14,7 @@ function SkeletonMainPost() {
           <span></span>
           <span></span>
         </div>
-        <div className="info">
-          <div className='text'></div>
-          <div className='text'></div>
-        </div>
+        <div className='info'></div>
       </div>
     </div>
   )
