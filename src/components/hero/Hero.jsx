@@ -1,12 +1,12 @@
-import './mainNews.scss'
-import postImage from '../../assets/mbc-main-post-test.png'
 import { useContext } from 'react'
-import {NewsContext} from '../../NewsContext';
+import { NewsContext } from '../../NewsContext';
+
+import SkeletonMainPost from '../skeleton/SkeletonMainPost';
+
+import './hero.scss'
 
 
-import SkeletonMainPost from '../../components/skeleton/SkeletonMainPost';
-
-function MainNews() {
+function Hero() {
 
   const {mainData, loaded} = useContext(NewsContext) // get data from context
   
@@ -38,4 +38,4 @@ function MainNews() {
   </>
 }
 
-export default MainNews
+export default Hero

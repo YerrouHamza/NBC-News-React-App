@@ -4,7 +4,7 @@ import './home.scss'; // import the Home style
 // import the components
 import Navbar from '../../components/navbar/Navbar';
 import ControlBar from '../../components/control-bar/controlBar';
-import MainNews from '../../Posts/main-news/MainNews';
+import Hero from '../../components/hero/Hero';
 import NewsBar from '../../Posts/news-bar/NewsBar';
 import NewsFilter from '../../Posts/news-filter/NewsFilter';
 import NewsSlider from '../../Posts/news-slider/NewsSlider';
@@ -16,7 +16,7 @@ function Home() {
     <Navbar />
     <ControlBar />
     <header className="haeder">
-      <MainNews/>
+      <Hero/>
     </header>
     <NewsBar />
     <NewsFilter />
