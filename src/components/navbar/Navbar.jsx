@@ -30,13 +30,13 @@ function Navbar({activeItem}) {
         <nav className='menu'>
           <ul className='navlist'>
             <li>
+              <Link to='/news/general' className={ activeCategory === 'general' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">General</Link>
+            </li>
+            <li>
               <Link to='/news/business' className={ activeCategory == 'business' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Business</Link>
             </li>
             <li>
               <Link to='/news/entertainment' className={ activeCategory === 'entertainment' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Entertainment</Link>
-            </li>
-            <li>
-              <Link to='/news/general' className={ activeCategory === 'general' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">General</Link>
             </li>
             <li>
               <Link to='/news/health' className={ activeCategory === 'health' ? 'navlist-item animation-underline active' : 'navlist-item animation-underline'} href="#">Health</Link>
