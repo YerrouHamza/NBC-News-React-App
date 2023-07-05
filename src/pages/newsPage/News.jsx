@@ -22,7 +22,7 @@ function News() {
 
     const {country} = useContext(NewsContext); // get the context country
     const [data, setData] = useState([]);
-    const [newscategory, setNewsCategory] = useState('Business')
+    const [newscategory, setNewsCategory] = useState('')
     const [loaded, setLoaded] = useState(false)
 
     const [maxNews, setMaxNews] = useState(19);
@@ -35,17 +35,22 @@ function News() {
     
     const ApiKey = 'afe532d07ba148329362cacae6343b5e'; // api key
     useEffect(() => {
+      axios.get(`https://newsapi.org/v2/top-headlines?category=${newscategory}&country=${country}&pageSize=${maxNews}&apiKey=${ApiKey}`)
+      .then(Response => {
+        const articles = Response.data.articles
+        setData(articles)
+        setTimeout(() => {
+          setLoaded(Response.data ? true : false)
+        }, 1000);
+      }).catch(error => {
+        console.log(error)
+      })
+      
+      return() => {
+        setData('')
         setLoaded(false)
-        axios.get(`https://newsapi.org/v2/top-headlines?category=${newscategory}&country=${country}&pageSize=${maxNews}&apiKey=${ApiKey}`)
-        .then(Response => {
-            const articles = Response.data.articles
-            setData(articles)
-            setTimeout(() => {
-              setLoaded(Response.data ? true : false)
-            }, 1000);
-        }).catch(error => {
-            console.log(error)
-        })
+        console.log('')
+      } 
     }, [newscategory, country, maxNews])
 
 
@@ -71,11 +76,11 @@ function News() {
               description={news.description}
               creator={news.creator}
               url={news.url}
-              tag="Top Headline"
+              tag={category}
               index={index} 
             />
           ))
-          : <SkeletonMainPost tag="Top Headline" />
+          : <SkeletonMainPost tag={category} />
         }
       </section>
       <section className='news-section'>

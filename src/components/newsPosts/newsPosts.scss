@@ -129,6 +129,8 @@
       .tag {
           color: var(--primary-color);
           margin-bottom: 15px;
+          text-transform: capitalize;
+          letter-spacing: 1px;
       }
 
       .title {
