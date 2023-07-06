@@ -15,10 +15,12 @@
         transition: all .3s ease-in-out;
         
         &:is(:hover) {
+            border-color: var(--primary-color);
             outline-offset: 2px;
             outline-color: var(--primary-color);
         }
         &:is(:active, :focus) {
+            border-color: var(--primary-color);
             outline-offset: 3px;
         }
     }
@@ -33,6 +35,11 @@
             background-color: var(--primary-color);
             color: #ffffff;
         }
+    }
+
+    &-light {
+        color: #ffffff;
+        border-color: #ffffff;
     }
 
     &-icon, &-clear {

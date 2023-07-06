@@ -1,40 +1,109 @@
 import { useContext } from 'react'
 import { NewsContext } from '../../NewsContext';
 
-import SkeletonMainPost from '../skeleton/SkeletonMainPost';
+import { Link } from 'react-router-dom';
 
 import './hero.scss'
 
+import sportsNewsBgImage from '../../assets/img/nbc-sport-news-hero.jpg';
+import generalNewsBgImage from '../../assets/img/nbc-general-news-hero.jpg';
+import businessNewsBgImage from '../../assets/img/nbc-business-news-hero.jpg';
+import healthNewsBgImage from '../../assets/img/nbc-health-news-hero.jpg';
+import technologyNewsBgImage from '../../assets/img/nbc-technology-news-hero.jpg';
+import scienceNewsBgImage from '../../assets/img/nbc-science-news-hero.jpg';
+import entertainmentNewsBgImage from '../../assets/img/nbc-entertainment-news-hero.jpg';
+
+const sportsImageBg = {
+  backgroundImage: `url(${sportsNewsBgImage})`
+}
+const generalImageBG = {
+  backgroundImage: `url(${generalNewsBgImage})`
+}
+const businessImageBg = {
+  backgroundImage: `url(${businessNewsBgImage})`
+}
+const healthImageBG = {
+  backgroundImage: `url(${healthNewsBgImage})`
+}
+const technologyImageBg = {
+  backgroundImage: `url(${technologyNewsBgImage})`
+}
+const scienceImageBg = {
+  backgroundImage: `url(${scienceNewsBgImage})`
+}
+const entertainmentyImageBg = {
+  backgroundImage: `url(${entertainmentNewsBgImage})`
+}
 
 function Hero() {
 
   const {mainData, loaded} = useContext(NewsContext) // get data from context
   
   return <>
-  {loaded ? mainData.slice(0, 1).map((news, index) => (
-    <div className="post post-style-main" key={index}>
-      <img className='post-img' src={news.urlToImage} alt="the Trending image" />
-      <div className="post-content">
-        <h4 className='tag'>Trending</h4>
-        <h2 className='title'>
-          {news.title}
-        </h2>
-        <p className='description'>
-          {news.description}
-        </p>
-        <div className="info">
-          <p className='posted-time'>
-            <span>{'2'}</span> hours ago
-          </p>
-          <p className='posted-by'>
-          By <span>{news.creator ? news.creator : 'Anonymous'}</span>
-          </p>
+    <div className="hero">
+      <Link to='/news/sports' className="hero-cards hero-card1" style={sportsImageBg}>
+        <div className="hero-card-content">
+          <h4 className='category'>Sports</h4>
+          <h2 className='title'>
+            Sports World in Motion: Don't Miss a Beat with Latest Updates!
+          </h2>
+        </div>
+      </Link>
+
+      <Link to='news/technology' className="hero-cards hero-card2" style={technologyImageBg}>
+        <div className="hero-card-content">
+          <h4 className='category'>Technology</h4>
+          <h2 className='title'>
+            Breaking the Code: Stay Informed, Embrace Technological Advances!
+          </h2>
+        </div>
+      </Link>
+
+      <Link to='news/Business' className="hero-cards hero-card3" style={businessImageBg}>
+        <div className="hero-card-content">
+          <h4 className='category'>Business</h4>
+          <h2 className='title'>
+            Dive into Business News Today!
+          </h2>
+        </div>
+      </Link>
+
+      <Link to='news/health' className="hero-cards hero-card4" style={healthImageBG}>
+        <div className="hero-card-content">
+          <h4 className='category'>Health</h4>
+          <h2 className='title'>
+            Stay Healthy, Make Informed Choices!
+          </h2>
+        </div>
+      </Link>
+      
+      <div className="hero-cards hero-card5" style={generalImageBG}>
+        <div className="hero-card-content">
+          <h2 className='title'>
+            Catch Up on Current Events: Explore the Latest General News Stories!
+          </h2>
+          <Link to='news/general' class="btn btn-border btn-primary btn-light">Catch Up</Link>
         </div>
       </div>
-    </div>
 
-  )) : <SkeletonMainPost tag="Trendings" />
-}
+      <Link to='news/entertainment' className="hero-cards hero-card6" style={entertainmentyImageBg}>
+        <div className="hero-card-content">
+          <h4 className='category'>Entertainment</h4>
+          <h2 className='title'>
+            Lights, Camera, Action: Explore the Hottest Entertainment Updates!
+          </h2>
+        </div>
+      </Link>
+
+      <Link to='news/science' className="hero-cards hero-card7" style={scienceImageBg}>
+        <div className="hero-card-content">
+          <h4 className='category'>Science</h4>
+          <h2 className='title'>
+            Unlock the Mysteries of the Universe!
+          </h2>
+        </div>
+      </Link>
+    </div>
   </>
 }
 

@@ -1,117 +1,172 @@
-.post {
-    &-style-main {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+.hero {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 95px);
+    grid-template-areas: 
+    "heroCard1 heroCard1 heroCard1 heroCard3 heroCard3 heroCard4 heroCard4"
+    "heroCard1 heroCard1 heroCard1 heroCard3 heroCard3 heroCard4 heroCard4"
+    "heroCard1 heroCard1 heroCard1 heroCard5 heroCard5 heroCard5 heroCard5"
+    "heroCard2 heroCard2 heroCard2 heroCard5 heroCard5 heroCard5 heroCard5"
+    "heroCard2 heroCard2 heroCard2 heroCard5 heroCard5 heroCard5 heroCard5"
+    "heroCard7 heroCard7 heroCard7 heroCard7 heroCard6 heroCard6 heroCard6"
+    "heroCard7 heroCard7 heroCard7 heroCard7 heroCard6 heroCard6 heroCard6";
+
+    gap: 10px;
+
+    &-card1 {
+        grid-area: heroCard1;
+    }
+    &-card2 {
+        grid-area: heroCard2;
+    }
+    &-card3 {
+        grid-area: heroCard3;
+    }
+    &-card4 {
+        grid-area: heroCard4;
+    }
+    &-card5 {
+        grid-area: heroCard5;
+    }
+    &-card6 {
+        grid-area: heroCard6;
+    }
+    &-card7 {
+        grid-area: heroCard7;
     }
 
-    &-img {
-        flex: 6;
-        padding-right: 30px;
-        width: 100%;
-        max-width: 700px;
-        max-height: 500px;
-        object-fit: cover;
-        object-position: center;
-    }
-
-    &-content {
-        flex: 6;
-        padding-left: 30px;
-        height: 400px;
-        padding: 0 30px;
+    &-cards {
+        color: #ffffff;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 20px;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
+        align-items: flex-end;
 
+        position: relative;
+        inset: 0;
+        z-index: 0;
 
-        .tag {
-            color: var(--primary-color);
-            margin-bottom: 15px;
+        &::after {
+            content: '';
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            inset: 0;
+            background-color: #171717;
+            z-index: -1;
+            opacity: .4;
+        }
+
+        .category {
+            margin-bottom: 10px;
+            font-size: 18px;
+            letter-spacing: 1px;
+
+            position: relative;
+            top: 0; left: 0; top: 0; bottom: 0;
+            padding: 5px 0;
+            
+            transition: all .3s ease-in-out;
+            
+            
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0; bottom: 0;
+                height: 3px;
+                width: 100%;
+                max-width: 30px;
+                background-color: var(--primary-color);
+                transition: all .4s ease-in-out;
+            }
         }
 
         .title {
-            font-style: italic;
-            font-size: 30px;
-            line-height: 1.2;
-            margin-bottom: 23px;
-
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-                    line-clamp: 3; 
-            -webkit-box-orient: vertical;
-        }
-
-        .description {
-            margin-bottom: 20px;
             font-size: 18px;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 5;
-                    line-clamp: 5; 
-            -webkit-box-orient: vertical;
         }
 
-        .info {
-            display: flex;
-            font-size: 15px;
-            color: 40%;
-            
-            .posted-time {
-                margin-right: 30px;
-            }
-            
-            .posted-by {
-                color: #484848;
-            }
-        }
-    }
-    @media only screen and (max-width: 1200px) {
-        &-img {
-            flex: 4;
-            padding-right: 10px;
-            width: 100%;
-            max-width: 550px;
-            max-height: 450px;
-        }
-
-        &-content {
-            padding-left: 10px;
 
 
-            .tag {
-                margin-bottom: 10px;
-            }
-
-            .title {
-                margin-bottom: 15px;
-            }
-
-            .description {
-                margin-bottom: 20px;
-            }
-        }
     }
 
-    @media only screen and (max-width: 1000px) {
-        flex-direction: column;
-        &-img {
-            padding-right: 0;
-            width: 100%;
-            max-width: 100%;
-            margin-bottom: 25px;
-        }
-    }
+    &-card5 {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
 
-    @media only screen and (max-width: 500px) {
         .title {
             font-size: 25px;
-        }
-
-        .description {
-            margin-bottom: 18px;
+            margin-bottom: 30px;
         }
     }
 
+    // the breakpoints
+    @media only screen and (max-width: 900px) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(6, 150px);
+        grid-template-areas:
+        "heroCard1 heroCard1 heroCard3"
+        "heroCard1 heroCard1 heroCard4"
+        "heroCard2 heroCard2 heroCard2"
+        "heroCard7 heroCard5 heroCard5"
+        "heroCard7 heroCard5 heroCard5"
+        "heroCard6 heroCard6 heroCard6";
+
+        &-cards {
+            .category {
+                font-size: 16px;
+            }
+            .title {
+                font-size: 17px;
+            }
+        }
+    }
+
+    // the breakpoints
+    @media only screen and (max-width: 759px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 180px);
+        grid-template-areas:
+        "heroCard1 heroCard1"
+        "heroCard3 heroCard4"
+        "heroCard2 heroCard2"
+        "heroCard5 heroCard5"
+        "heroCard7 heroCard6";
+
+        &-cards {
+            .category {
+                font-size: 14px;
+            }
+            .title {
+                font-size: 16px;
+            }
+        }
+    }
+
+    // the breakpoints
+    @media only screen and (max-width: 759px) {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(5, 180px);
+        grid-template-areas:
+        "heroCard1"
+        "heroCard3"
+        "heroCard4"
+        "heroCard2"
+        "heroCard5"
+        "heroCard7"
+        "heroCard6";
+
+        &-cards {
+            .category {
+                font-size: 14px;
+            }
+            .title {
+                font-size: 16px;
+            }
+        }
+    }
 }
+
