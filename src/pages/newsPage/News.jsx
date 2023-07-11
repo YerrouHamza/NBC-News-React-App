@@ -49,7 +49,7 @@ function News() {
       return() => {
         setData('')
         setLoaded(false)
-        console.log('')
+        // console.log('')
       } 
     }, [newscategory, country, maxNews])
 

@@ -38,6 +38,11 @@ function NewsFilter() {
         }).catch(error => {
             console.log(error)
         })
+        
+        return () => {
+            setData('')
+            setLoaded(false)
+        }
     }, [newscategory, country])
 
     const handelNewsCategory = (e) => {
