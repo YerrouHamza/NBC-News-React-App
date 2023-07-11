@@ -1,43 +1,38 @@
-import { useContext } from 'react'
-import { NewsContext } from '../../NewsContext';
-
 import { Link } from 'react-router-dom';
 
 import './hero.scss'
 
-import sportsNewsBgImage from '../../assets/img/nbc-sport-news-hero.jpg';
-import generalNewsBgImage from '../../assets/img/nbc-general-news-hero.jpg';
-import businessNewsBgImage from '../../assets/img/nbc-business-news-hero.jpg';
-import healthNewsBgImage from '../../assets/img/nbc-health-news-hero.jpg';
-import technologyNewsBgImage from '../../assets/img/nbc-technology-news-hero.jpg';
-import scienceNewsBgImage from '../../assets/img/nbc-science-news-hero.jpg';
-import entertainmentNewsBgImage from '../../assets/img/nbc-entertainment-news-hero.jpg';
+import sportsNewsBgImage from '../../assets/img/nbc-sport-news-hero.webp';
+import generalNewsBgImage from '../../assets/img/nbc-general-news-hero.webp';
+import businessNewsBgImage from '../../assets/img/nbc-business-news-hero.webp';
+import healthNewsBgImage from '../../assets/img/nbc-health-news-hero.webp';
+import technologyNewsBgImage from '../../assets/img/nbc-technology-news-hero.webp';
+import scienceNewsBgImage from '../../assets/img/nbc-science-news-hero.webp';
+import entertainmentNewsBgImage from '../../assets/img/nbc-entertainment-news-hero.webp';
 
-const sportsImageBg = {
-  backgroundImage: `url(${sportsNewsBgImage})`
-}
-const generalImageBG = {
-  backgroundImage: `url(${generalNewsBgImage})`
-}
-const businessImageBg = {
-  backgroundImage: `url(${businessNewsBgImage})`
-}
-const healthImageBG = {
-  backgroundImage: `url(${healthNewsBgImage})`
-}
-const technologyImageBg = {
-  backgroundImage: `url(${technologyNewsBgImage})`
-}
-const scienceImageBg = {
-  backgroundImage: `url(${scienceNewsBgImage})`
-}
-const entertainmentyImageBg = {
-  backgroundImage: `url(${entertainmentNewsBgImage})`
-}
 
 function Hero() {
-
-  const {mainData, loaded} = useContext(NewsContext) // get data from context
+  const sportsImageBg = {
+    backgroundImage: `url(${sportsNewsBgImage})`
+  }
+  const generalImageBG = {
+    backgroundImage: `url(${generalNewsBgImage})`
+  }
+  const businessImageBg = {
+    backgroundImage: `url(${businessNewsBgImage})`
+  }
+  const healthImageBG = {
+    backgroundImage: `url(${healthNewsBgImage})`
+  }
+  const technologyImageBg = {
+    backgroundImage: `url(${technologyNewsBgImage})`
+  }
+  const scienceImageBg = {
+    backgroundImage: `url(${scienceNewsBgImage})`
+  }
+  const entertainmentyImageBg = {
+    backgroundImage: `url(${entertainmentNewsBgImage})`
+  }
   
   return <>
     <div className="hero">
