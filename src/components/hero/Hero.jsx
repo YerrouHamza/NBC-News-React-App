@@ -77,7 +77,7 @@ function Hero() {
           <h2 className='title'>
             Catch Up on Current Events: Explore the Latest General News Stories!
           </h2>
-          <Link to='news/general' class="btn btn-border btn-primary btn-light">Catch Up</Link>
+          <Link to='news/general' className="btn btn-border btn-primary btn-light">Catch Up</Link>
         </div>
       </div>
 

@@ -54,7 +54,7 @@ function News() {
     }, [newscategory, country, maxNews])
 
 
-    const handelGetMoreNews = (e) => {
+    const handelGetMoreNews = () => {
       if(maxNews === 100) {
         setDisplayButton(false)
       } else {
@@ -71,6 +71,7 @@ function News() {
         {
           loaded ? data.slice(0, 1).map((news, index) => (
             <NewsHorizontalPost 
+              key={index}
               image={news.urlToImage}
               title={news.title}
               description={news.description}
@@ -85,21 +86,23 @@ function News() {
       </section>
       <section className='news-section'>
         <div className='posts'>
-          {loaded ? data.slice(1, maxNews).map( (news, index) => (
-            <NewsPost 
+          {loaded ? 
+            data.slice(1, maxNews).map( (news, index) => (
+              <NewsPost  key={index}
                 index={index}
                 image={news.urlToImage}
                 title={news.title}
                 description={news.description}
                 creator={news.creator}
                 url={news.url}
-            />
-          )) : [...Array(maxNews - 1)].map((i) =>
+              />
+            ))
+            : [...Array(maxNews - 1)].map((i) =>
               <SkeletonPost key={i} />
             )
           }
         </div>
-        <button class={displayButton ? "btn btn-border btn-primary" : "btn btn-border btn-primary display"} onClick={handelGetMoreNews}>
+        <button className={displayButton ? "btn btn-border btn-primary" : "btn btn-border btn-primary display"} onClick={handelGetMoreNews}>
           {displayButton ? 'Veiw More News' : 'No More News!!'}
         </button>
       </section>
